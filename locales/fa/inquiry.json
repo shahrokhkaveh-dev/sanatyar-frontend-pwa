@@ -1,0 +1,14 @@
+{
+    "title": "استعلام",
+    "error_message": "پیام خطا",
+    "product_image": "تصویر محصول",
+    "request_count": "تعداد درخواست",
+    "company_name": "نام شرکت",
+    "inquiry_recipient": "نام استعلام گیرنده",
+    "request_status": "وضعیت درخواست",
+    "request_date": "تاریخ درخواست",
+    "show_inquiry_details": "نمایش جزئیات استعلام",
+    "no_data": "داده‌ای موجود نیست",
+    "loading": "در حال بارگذاری",
+    "back_to_home": "بازگشت به صفحه اصلی"
+}

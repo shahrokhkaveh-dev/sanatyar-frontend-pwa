@@ -1,0 +1,17 @@
+{
+    "title": "Inquiry",
+    "error_message": "Error Message",
+    "product_image": "Product Image",
+    "request_count": "Request Count",
+    "company_name": "Company Name",
+    "inquiry_recipient": "Inquiry Recipient",
+    "request_status": "Request Status",
+    "request_date": "Request Date",
+    "show_inquiry_details": "Show Inquiry Details",
+    "no_data": "No Data",
+    "loading": "Loading",
+    "back_to_home": "Back to Home",
+    "response_title": "Response Title",
+    "response_date": "Response Date",
+    "response_amount": "Response Amount"
+}

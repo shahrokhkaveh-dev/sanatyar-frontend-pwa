@@ -1,0 +1,17 @@
+{
+    "title": "Sorgu",
+    "error_message": "Hata Mesajı",
+    "product_image": "Ürün Resmi",
+    "request_count": "Talep Sayısı",
+    "company_name": "Şirket Adı",
+    "inquiry_recipient": "Sorgu Alıcısı",
+    "request_status": "Talep Durumu",
+    "request_date": "Talep Tarihi",
+    "show_inquiry_details": "Sorgu Detaylarını Göster",
+    "no_data": "Veri Yok",
+    "loading": "Yükleniyor",
+    "back_to_home": "Ana Sayfaya Dön",
+    "response_title": "Cevap Başlığı",
+    "response_date": "Cevap Tarihi",
+    "response_amount": "Cevap Tutarı"
+}

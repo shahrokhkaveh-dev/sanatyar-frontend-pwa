@@ -1,0 +1,18 @@
+{
+    "call": "Call",
+    "contact": "Contact",
+    "map": "Map",
+    "products": "Products",
+    "inquiry": "Inquiry",
+    "membership": "Membership",
+    "images": "Images",
+    "company_information": "Company Information",
+    "about_company": "About Company",
+    "no_description": "No Description",
+    "activity_area": "Activity Area",
+    "phone_number": "Phone Number",
+    "address": "Address",
+    "show_all": "Show All",
+    "search_brands": "Search in brands",
+    "search_center": "Center name"
+}

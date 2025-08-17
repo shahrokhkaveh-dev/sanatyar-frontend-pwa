@@ -9,15 +9,35 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.6.0",
+    "axios": "^1.9.0",
+    "geolib": "^3.3.4",
+    "js-cookie": "^3.0.5",
+    "leaflet": "^1.9.4",
+    "lottie-react": "^2.4.1",
+    "moment-jalaali": "^0.10.4",
+    "next": "15.3.2",
+    "next-pwa": "^5.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "react-easy-crop": "^5.4.2",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^5.0.0",
+    "react-leaflet-routing-machine": "^0.0.5",
+    "react-multi-date-picker": "^4.5.2",
+    "react-otp-input": "^3.1.1",
+    "react-select": "^5.10.1",
+    "react-signature-canvas": "^1.1.0-alpha.2",
+    "react-toastify": "^11.0.5",
+    "styled-components": "^6.1.18",
+    "swiper": "^11.2.8"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5.8.3"
   }
 }

@@ -1,0 +1,17 @@
+    {
+        "title": "استعلام",
+        "error_message": "پیام خطا",
+        "product_image": "صورة المنتج",
+        "request_count": "عدد الطلب",
+        "company_name": "اسم الشركة",
+        "inquiry_recipient": "مستلم الاستعلام",
+        "request_status": "حالة الطلب",
+        "request_date": "تاريخ الطلب",
+        "show_inquiry_details": "عرض تفاصيل الاستعلام",
+        "no_data": "لا توجد بيانات",
+        "loading": "جاري التحميل",
+        "back_to_home": "العودة إلى الصفحة الرئيسية",
+        "response_title": "استجابة الاستعلام",
+        "response_date": "تاريخ الاستجابة",
+        "response_amount": "مبلغ الاستجابة"
+    }

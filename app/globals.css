@@ -1,26 +1,189 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer components {
+
+    .errortag {
+        @apply fixed backdrop-brightness-15 opacity-0 top-1/2 -translate-y-1/2 animate-[drop-fade_5s_ease-in-out] text-white text-sm max-w-full py-1 px-2 z-50 left-1/2 text-nowrap -translate-x-1/2;
+    }
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+    --animate-drop-fade: drop-fade 5s ease-in-out;
+
+    @keyframes drop-fade {
+        0% {
+            opacity: 0;
+            top: -50%;
+        }
+
+        1% {
+            opacity: 0;
+            top: 50%;
+        }
+
+        3% {
+            opacity: 1;
+            top: 50%
+        }
+
+        99% {
+            opacity: 0;
+            top: 50%;
+        }
+
+        100% {
+            opacity: 0;
+            top: -50%;
+        }
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+    @font-face {
+        font-family: "main-font";
+        src: url("/fonts/fa-num/iran-yekan-300.eot");
+        src: url("/fonts/fa-num/iran-yekan-300.eot?#iefix") format("embedded-opentype"),
+            url("/fonts/fa-num/iran-yekan-300.woff2") format("woff2"),
+            url("/fonts/fa-num/iran-yekan-300.woff") format("woff"),
+            url("/fonts/fa-num/iran-yekan-300.ttf") format("truetype");
+        font-weight: 300;
+    }
+
+    @font-face {
+        font-family: "main-font";
+        src: url("/fonts/fa-num/iran-yekan-400.eot");
+        src: url("/fonts/fa-num/iran-yekan-400.eot?#iefix") format("embedded-opentype"),
+            url("/fonts/fa-num/iran-yekan-400.woff2") format("woff2"),
+            url("/fonts/fa-num/iran-yekan-400.woff") format("woff"),
+            url("/fonts/fa-num/iran-yekan-400.ttf") format("truetype");
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: "main-font";
+        src: url("/fonts/fa-num/iran-yekan-500.eot");
+        src: url("/fonts/fa-num/iran-yekan-500.eot?#iefix") format("embedded-opentype"),
+            url("/fonts/fa-num/iran-yekan-500.woff2") format("woff2"),
+            url("/fonts/fa-num/iran-yekan-500.woff") format("woff"),
+            url("/fonts/fa-num/iran-yekan-500.ttf") format("truetype");
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: "main-font";
+        src: url("/fonts/fa-num/iran-yekan-700.eot");
+        src: url("/fonts/fa-num/iran-yekan-700.eot?#iefix") format("embedded-opentype"),
+            url("/fonts/fa-num/iran-yekan-700.woff2") format("woff2"),
+            url("/fonts/fa-num/iran-yekan-700.woff") format("woff"),
+            url("/fonts/fa-num/iran-yekan-700.ttf") format("truetype");
+        font-weight: 700;
+    }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+    --color-blue-800: #28579d;
+    --color-blue-900: #28579d;
+    --color-orange-400: #fd8834;
+}
+
+
+
+
+
+
+
+
+/* حالا بقیه استایل‌ها */
+* {
+    font-family: 'main-font';
+}
+
+button,
+input,
+select {
+    @apply appearance-none outline-none;
+}
+
+.custom-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.custom-checkbox:checked {
+    background-color: #2563eb;
+    /* رنگ پس‌زمینه تیک‌خورده */
+    border-color: #2563eb;
+}
+
+.custom-checkbox:checked::before {
+    content: '✔';
+    /* تیک داخل چک‌باکس */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+}
+
+.custom-checkbox:checked:hover {
+    background-color: #2563eb;
+    /* رنگ تیک‌خورده در حالت hover */
+}
+
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 15s linear infinite;
+}
+
+textarea {
+    outline: none;
+
+    resize: none;
+
+    font: inherit;
+
+    transition: all 0.3s ease;
+
+}
+
+table.content-table {
+    border-collapse: collapse;
+    max-width: 10px;
+    overflow-x: hidden;
+}
+
+table.content-table th,
+table.content-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: right;
+}
+
+#desc {
+    text-wrap: wrap;
+
 }
