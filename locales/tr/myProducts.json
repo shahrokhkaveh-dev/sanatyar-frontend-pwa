@@ -32,5 +32,8 @@
     "description": "Açıklama",
     "select_category": "Kategori seçmek için buraya tıklayın...",
     "feature_title": "Başlık (Örnek: Renk)",
-    "feature_value": "Değer (Örnek: Kırmızı)"
+    "feature_value": "Değer (Örnek: Kırmızı)",
+    "delete_product_confirmation": "Ürünü silmek istediğinize emin misiniz?",
+    "yes": "Evet",
+    "cancel": "İptal"
 }

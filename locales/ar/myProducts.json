@@ -32,5 +32,8 @@
     "description": "الوصف",
     "select_category": "للاختيار من الفئات انقر هنا...",
     "feature_title": "العنوان (مثال: اللون)",
-    "feature_value": "القيمة (مثال: أحمر)"
+    "feature_value": "القيمة (مثال: أحمر)",
+    "delete_product_confirmation": "هل أنت متأكد من حذف المنتج؟",
+    "yes": "نعم",
+    "cancel": "إلغاء"
 }

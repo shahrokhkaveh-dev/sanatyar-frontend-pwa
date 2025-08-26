@@ -26,7 +26,7 @@ export default async function page({ params }) {
         <div className="min-h-screen ">
             <div className="sticky top-0 z-[49] bg-white">
                 <HeaderItems title={t.title} href={`/${locale}`} />
-                <Navigation />
+                <Navigation t={t} locale={locale} />
             </div>
             <div className="flex flex-col gap-y-2 py-2 px-1.5 ">
                 {res.data.response.data.length > 0 && res.data.response.data.map((i) => (

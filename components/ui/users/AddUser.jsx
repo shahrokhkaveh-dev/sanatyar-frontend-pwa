@@ -77,7 +77,7 @@ export default function AddUser({ t }) {
             <input className="hidden peer" type="checkbox" id="adduser" />
 
             <div style={{ zIndex: "999" }} className="fixed top-0 w-full h-full right-0 backdrop-brightness-25 peer-checked:block hidden ">
-                <div className="bg-white  py-2 px-2.5 w-[260px] rounded-lg mx-auto flex flex-col gap-y-2.5 mt-5">
+                <div className="bg-white  py-2 px-2.5 w-3/4 rounded-lg mx-auto flex flex-col gap-y-2.5 mt-5">
                     <input className="h-7 border-[1px] border-neutral-300 placeholder:text-neutral-400 text-sm font-light rounded-md  px-1 w-full" value={user.first_name || ""} onChange={(e) => setUser(perv => ({ ...perv, first_name: e.target.value }))} placeholder={t?.first_name || "نام کاربر"} />
                     <input className="h-7 border-[1px] border-neutral-300 placeholder:text-neutral-400 text-sm font-light rounded-md  px-1 w-full" value={user.last_name || ""} onChange={(e) => setUser(perv => ({ ...perv, last_name: e.target.value }))} placeholder={t?.last_name || "نام خانوادگی کاربر"} />
                     <input className="h-7 border-[1px] border-neutral-300 placeholder:text-neutral-400 text-sm font-light rounded-md  px-1 w-full" value={user.phone || ""} onChange={(e) => setUser(perv => ({ ...perv, phone: e.target.value }))} placeholder={t?.phone_number || "شماره موبایل کاربر (غیرقابل ویرایش)"} />
@@ -86,7 +86,7 @@ export default function AddUser({ t }) {
                         {Object.keys(permission).map((i, index) => (
                             <div key={index} className="flex flex-row justify-between gap-x-2 items-center md:text-base sm:text-sm text-xs">
 
-                                <label htmlFor={i}>{permission[i]}</label>
+                                <label htmlFor={i}>{t[`permission_${i}`] || permission[i]}</label>
                                 <input className="custom-checkbox" checked={!!user.permission[i]} onChange={() => ChangeHandler(i)} type="checkbox" id={i} name={i} value={1} />
                             </div>
                         ))}

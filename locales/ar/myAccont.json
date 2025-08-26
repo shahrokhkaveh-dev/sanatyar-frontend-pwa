@@ -168,5 +168,15 @@
     "terms_content": "محتوى الشروط والأحكام",
     "close_window": "إغلاق النافذة",
     "description": "الوصف",
-    "subtitle": "العنوان الفرعي"
+    "subtitle": "العنوان الفرعي",
+    "add_user_max_3": "إضافة مستخدم (حد أقصى 3)",
+    "add_images": "إضافة الصور",
+    "user_access_level": "مستوى الوصول للمستخدم",
+    "permission_1": "معلومات الشركة",
+    "permission_2": "رسالة الصناعة",
+    "permission_3": "مدير المبيعات",
+    "permission_4": "المنتجات والخدمات",
+    "permission_5": "مدير الشراء",
+    "permission_6": "تجديد الاشتراك",
+    "edit_user": "تعديل المستخدم"
 }

@@ -7,7 +7,7 @@ import HeaderItems from "@/components/layout/HeaderItems";
 
 const MapRoute = dynamic(() => import("../RouteMap"), { ssr: false });
 
-export default function Location({ data }) {
+export default function Location({ data, t }) {
     const [show, setShow] = useState(false);
 
     const closeMap = () => {
@@ -31,7 +31,7 @@ export default function Location({ data }) {
             {/* فقط وقتی show == true نمایش بده */}
             {show && (
                 <div className="fixed top-0 right-0 w-full z-50 h-screen flex flex-col">
-                    <HeaderItems title={"نقشه"} action={closeMap} />
+                    <HeaderItems title={t.map} action={closeMap} />
                     <MapRoute
                         destination={{ lng: data.brand_lng, lat: data.brand_lat }}
                     />

@@ -168,5 +168,15 @@
     "terms_content": "Terms and conditions content",
     "close_window": "Close Window",
     "description": "Description",
-    "subtitle": "Subtitle"
+    "subtitle": "Subtitle",
+    "add_user_max_3": "Add User (Max 3)",
+    "add_images": "Add Images",
+    "user_access_level": "User Access Level",
+    "permission_1": "Company Information",
+    "permission_2": "Industry Letter",
+    "permission_3": "Sales Manager",
+    "permission_4": "Products & Services",
+    "permission_5": "Purchase Manager",
+    "permission_6": "Subscription Renewal",
+    "edit_user": "Edit User"
 }

@@ -33,5 +33,13 @@
     "add_group": "افزودن گروه",
     "attachment": "پیوست",
     "download_letter": "دانلود نامه",
-    "download_attachment": "دانلود پیوست"
+    "download_attachment": "دانلود پیوست",
+    "date": "تاریخ",
+    "letter_number": "شماره نامه",
+    "sender": "ارسال کننده",
+    "letter": "نامه",
+    "reciver": "گیرنده",
+    "archive_products": "بایگانی محصولات",
+    "write_content": "متن خود را بنویسید...",
+    "letter_sent": "نامه با موفقیت ارسال شد"
 }

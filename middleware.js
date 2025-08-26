@@ -16,10 +16,15 @@ export function middleware(request) {
     const currentLang = langCookie?.value || 'fa';
 
     // اگر مسیر اصلی (بدون locale) بود، redirect کن
-    if (pathname === '/') {
+    if (pathname === '/' && pathname !== '/selectLang') {
         const url = request.nextUrl.clone();
         url.pathname = `/${currentLang}`;
         return NextResponse.redirect(url);
+    }
+
+    // اگر مسیر selectLang بود، هیچ locale ای ست نکن
+    if (pathname === '/selectLang') {
+        return response;
     }
 
     // بررسی اینکه آیا مسیر با locale شروع می‌شود
@@ -37,7 +42,8 @@ export function middleware(request) {
         !pathname.startsWith('/_next') &&
         !pathname.startsWith('/api') &&
         !ignoredPaths.includes(pathname) &&
-        !pathname.includes('Signin')
+        !pathname.includes('Signin') &&
+        pathname !== '/selectLang'
     ) {
         // مسیر را URL-encode می‌کنیم تا از تبدیل به %2F و ... جلوگیری کنیم
         const encodedPath = pathname; // مسیر را encode می‌کنیم

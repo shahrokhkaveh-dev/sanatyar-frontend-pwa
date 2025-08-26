@@ -33,5 +33,13 @@
     "add_group": "إضافة مجموعة",
     "attachment": "المرفق",
     "download_letter": "تحميل الرسالة",
-    "download_attachment": "تحميل المرفق"
+    "download_attachment": "تحميل المرفق",
+    "date": "التاريخ",
+    "letter_number": "رقم الرسالة",
+    "sender": "المرسل",
+    "letter": "الرسالة",
+    "reciver": "المستلم",
+    "archive_products": "المنتجات المحفوظة",
+    "write_content": "اكتب نصك هنا...",
+    "letter_sent": "تم إرسال الرسالة بنجاح"
 }

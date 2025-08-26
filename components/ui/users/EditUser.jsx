@@ -110,7 +110,7 @@ export default function EditUser({ UserData, t }) {
                             {Object.keys(permission).map((i, index) => (
                                 <div key={index} className="flex flex-row gap-x-2 justify-between items-center md:text-base sm:text-sm text-xs">
 
-                                    <label htmlFor={i}>{permission[i]}</label>
+                                    <label htmlFor={i}>{t[`permission_${i}`] || permission[i]}</label>
                                     <input className="custom-checkbox" checked={!!user.permission[i]} onChange={() => ChangeHandler(i)} type="checkbox" id={i} name={i} value={1} />
                                 </div>
                             ))}

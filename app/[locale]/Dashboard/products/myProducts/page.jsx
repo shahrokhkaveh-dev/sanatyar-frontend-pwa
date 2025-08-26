@@ -55,7 +55,7 @@ export default async function ({ params }) {
                                 </div>
                             </div>
                         </div>
-                        <DeleteBtn id={i.id} />
+                        <DeleteBtn locale={locale} t={t} id={i.id} />
                     </div>
 
 

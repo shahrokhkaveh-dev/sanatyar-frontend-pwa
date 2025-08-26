@@ -5,11 +5,14 @@ import faTranslations from '@/locales/fa/automationSystem.json';
 import enTranslations from '@/locales/en/automationSystem.json';
 import arTranslations from '@/locales/ar/automationSystem.json';
 import trTranslations from '@/locales/tr/automationSystem.json';
+import { useParams } from 'next/navigation';
 
 const SendGroup = dynamic(() => import("@/components/pages/SendGroup"), { ssr: false });
 
-export default function page({ params }) {
-    const { locale } = params;
+export default function page() {
+
+    const params = useParams()
+    const locale = params.locale
 
     const translations = {
         fa: faTranslations,

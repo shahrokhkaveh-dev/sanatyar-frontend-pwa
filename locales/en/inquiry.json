@@ -13,5 +13,16 @@
     "back_to_home": "Back to Home",
     "response_title": "Response Title",
     "response_date": "Response Date",
-    "response_amount": "Response Amount"
+    "response_amount": "Response Amount",
+    "accept_request": "Accept Request",
+    "reject_request": "Reject Request",
+    "send_response": "Send Response",
+    "response_description": "Response Description",
+    "response_sent": "Response Sent",
+    "prefactor": "Prefactor",
+    "file_format": "File Format",
+    "cancel": "Cancel",
+    "accept_request_confirmation": "Are you sure you want to accept the request?",
+    "send_box": "Sent",
+    "receive_box": "Received"
 }

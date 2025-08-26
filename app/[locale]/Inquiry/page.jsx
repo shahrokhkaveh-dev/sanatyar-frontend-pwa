@@ -34,7 +34,7 @@ export default async function page({ params }) {
         <div className="min-h-screen ">
             <div className="sticky top-0 z-[49] bg-white">
                 <HeaderItems title={t.title} href={`/${locale}`} />
-                <Navigation />
+                <Navigation locale={locale} t={t} />
             </div>
             <div className="flex flex-col gap-y-2 py-2 px-1.5 ">
                 {res.data.response.data.length > 0 && res.data.response.data.map((i) => (
@@ -55,7 +55,7 @@ export default async function page({ params }) {
                                 <FaCalendarAlt className="text-blue-900 text-sm" />
                             </p>
                         </div>
-                        <Response id={i.id} />
+                        <Response locale={locale} t={t} id={i.id} />
                         <div className="border-t-[1px] border-black p-1 flex justify-center">
                             <Link href={`/${locale}/Inquiry/${i.id}`} className="bg-blue-800 text-white text-base font-bold  py-2 px-3 rounded-md">{t.show_inquiry_details}</Link>
 

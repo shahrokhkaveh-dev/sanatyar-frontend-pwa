@@ -1,5 +1,6 @@
 'use client';
 import { getCookie } from '@/util/Cookie';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -12,11 +13,14 @@ export default function RouteTracker() {
     const router = useRouter()
 
     const checkCookie = async () => {
-        if (pathname.includes("Login")) return
+        if (pathname.includes("selectLang") || pathname.includes("login")) return
         const cookie = await getCookie() || null
+        const lang = Cookies.get('lang') || null
 
-        if (!cookie) {
-            router.push('/Login')
+        if (!cookie && !lang) {
+            router.push('/selectLang')
+        } else if (!cookie && lang) {
+            router.push(`/${lang}/Login`)
         }
     }
 

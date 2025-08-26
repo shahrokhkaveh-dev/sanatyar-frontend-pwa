@@ -13,5 +13,16 @@
         "back_to_home": "العودة إلى الصفحة الرئيسية",
         "response_title": "استجابة الاستعلام",
         "response_date": "تاريخ الاستجابة",
-        "response_amount": "مبلغ الاستجابة"
+        "response_amount": "مبلغ الاستجابة",
+        "accept_request": "قبول الطلب",
+        "reject_request": "رفض الطلب",
+        "send_response": "ارسال الاستجابة",
+        "response_description": "وصف الاستجابة",
+        "response_sent": "تم إرسال الاستجابة بنجاح",
+        "prefactor": "المستند المسبق",
+        "file_format": "تنسيق الملف",
+        "cancel": "إلغاء",
+        "accept_request_confirmation": "هل أنت متأكد من قبول الطلب؟",
+        "send_box": "ارسال شده",
+        "receive_box": "دریافت شده"
     }

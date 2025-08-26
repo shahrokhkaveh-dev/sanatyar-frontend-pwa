@@ -13,7 +13,7 @@ import { IoBusiness } from "react-icons/io5";
 import { ShowMessage } from "@/util/ShowMessage";
 
 
-export default function SendGroup() {
+export default function SendGroup({ t, locale }) {
 
     const searchParams = useSearchParams()
 
@@ -75,8 +75,8 @@ export default function SendGroup() {
             return
         }
         if (res.data && res.data.flag) {
-            ShowMessage("نامه با موفقیت ارسال شد", setMessage)
-            router.push('/AutomationSystem/Outbox')
+            ShowMessage(t?.letter_sent || "نامه با موفقیت ارسال شد", setMessage)
+            router.push(`/${locale}/AutomationSystem/Outbox`)
 
         }
     }
@@ -88,9 +88,9 @@ export default function SendGroup() {
             {loading && <Loading />
             }
             {message && <p className="errortag">{message}</p>}
-            <HeaderItems href={"/AutomationSystem"} title={"ارسال پیام"} />
+            <HeaderItems href={`/${locale}/AutomationSystem`} title={t?.send_letter || "ارسال پیام"} />
             <div className="mt-2.5 flex flex-col gap-y-2 px-2">
-                <Input setinitdata={setLetter} setError={setError} data={company} setData={setCompany} bg={"white"} error={error} name={'name'} title={"گیرنده"} />
+                <Input setinitdata={setLetter} setError={setError} data={company} setData={setCompany} bg={"white"} error={error} name={'name'} title={t?.reciver || "گیرنده"} />
                 <div>
                     {company.companys && company.companys.length > 0 &&
                         <ul>
@@ -104,12 +104,12 @@ export default function SendGroup() {
                         </ul>
                     }
                 </div>
-                <Input setError={setError} data={Letter} setData={setLetter} bg={"white"} error={error} name={'subject'} title={"موضوع"} />
-                <Textarea bg={"white"} data={Letter} setData={setLetter} title={"متن خود را بنویسید..."} name={"content"} />
+                <Input setError={setError} data={Letter} setData={setLetter} bg={"white"} error={error} name={'subject'} title={t?.subject || "موضوع"} />
+                <Textarea bg={"white"} data={Letter} setData={setLetter} title={t?.write_content || "متن خود را بنویسید..."} name={"content"} />
                 <FileInput data={Letter} setData={setLetter} name={"attachment"} />
             </div>
             <div className="px-2">
-                <button onClick={SendHandler} className="w-full py-3 text-sm  rounded-md bg-blue-800 text-white mt-2">ارسال نامه </button>
+                <button onClick={SendHandler} className="w-full py-3 text-sm  rounded-md bg-blue-800 text-white mt-2">{t?.send_letter || "ارسال نامه "}</button>
             </div>
         </div>
     );

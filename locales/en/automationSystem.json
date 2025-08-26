@@ -33,5 +33,13 @@
     "add_group": "Add Group",
     "attachment": "Attachment",
     "download_letter": "Download Letter",
-    "download_attachment": "Download Attachment"
+    "download_attachment": "Download Attachment",
+    "date": "Date",
+    "letter_number": "Letter Number",
+    "sender": "Sender",
+    "letter": "Letter",
+    "reciver": "Reciver",
+    "archive_products": "Archive Products",
+    "write_content": "Write your text...",
+    "letter_sent": "Letter sent successfully"
 }

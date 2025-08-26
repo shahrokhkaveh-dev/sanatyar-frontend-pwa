@@ -13,5 +13,16 @@
     "back_to_home": "Ana Sayfaya Dön",
     "response_title": "Cevap Başlığı",
     "response_date": "Cevap Tarihi",
-    "response_amount": "Cevap Tutarı"
+    "response_amount": "Cevap Tutarı",
+    "accept_request": "Talep Kabul Et",
+    "reject_request": "Talep Red Et",
+    "send_response": "Cevap Gönder",
+    "response_description": "Cevap Açıklaması",
+    "response_sent": "Cevap Başarıyla Gönderildi",
+    "prefactor": "Ön Fatura",
+    "file_format": "Dosya Formatı",
+    "cancel": "İptal",
+    "accept_request_confirmation": "Talep Kabul Etmek İstediğinize Emin Misiniz?",
+    "send_box": "Gönderilenler",
+    "receive_box": "Alınanlar"
 }

@@ -33,5 +33,13 @@
     "add_group": "Grup Ekle",
     "attachment": "Ek",
     "download_letter": "Mektubu İndir",
-    "download_attachment": "Eki İndir"
+    "download_attachment": "Eki İndir",
+    "date": "Tarih",
+    "letter_number": "Mektubu Numarası",
+    "sender": "Gönderen",
+    "letter": "Mektup",
+    "reciver": "Alıcı",
+    "archive_products": "Arşiv Ürünler",
+    "write_content": "Mektup metnini buraya yazın...",
+    "letter_sent": "Mektup başarıyla gönderildi"
 }

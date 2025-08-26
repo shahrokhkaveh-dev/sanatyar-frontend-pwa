@@ -39,5 +39,12 @@
     "category_products": "Category Products",
     "brand_products": "Brand Products",
     "view_category": "View Category",
-    "view_brand": "View Brand"
+    "view_brand": "View Brand",
+    "inquiry": "Inquiry",
+    "inquiry_success": "Inquiry sent successfully",
+    "inquiry_number": "Inquiry Number",
+    "send_inquiry": "Send Inquiry",
+    "inquiry_number_placeholder": "Inquiry Number",
+    "unit": "Unit",
+    "brand": "Brand"
 }

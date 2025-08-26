@@ -39,5 +39,12 @@
     "category_products": "منتجات الفئة",
     "brand_products": "منتجات العلامة التجارية",
     "view_category": "عرض الفئة",
-    "view_brand": "عرض العلامة التجارية"
+    "view_brand": "عرض العلامة التجارية",
+    "inquiry": "استعلام",
+    "inquiry_success": "استعلام با موفقیت انجام شد",
+    "inquiry_number": "تعداد درخواست",
+    "send_inquiry": "ارسال درخواست",
+    "inquiry_number_placeholder": "مقدار درخواستی از محصول",
+    "unit": "واحد",
+    "brand": "نام شرکت"
 }

@@ -123,7 +123,7 @@ export default async function Home({ params }) {
                 <p className="text-sm font-bold ">{i.name}</p>
               </div>
               <div className="text-[10px] gap-x-4 text-nowrap flex flex-row w-full justify-between px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75">
-                <p className="flex flex-row gap-x-1"><BiSolidCategory className="text-base text-orange-400" />{i.category ? i.category.name : "دسته بندی نامخشص"} </p>
+                <p className="flex flex-row gap-x-1"><BiSolidCategory className="text-base text-orange-400" />{i.category ? i.category.name : t.unclassified_category} </p>
                 {i.city && <p className="flex flex-row gap-x-1 truncate"><ImOffice className="text-base text-orange-400" />{i.city.name} </p>}
               </div>
             </Link>

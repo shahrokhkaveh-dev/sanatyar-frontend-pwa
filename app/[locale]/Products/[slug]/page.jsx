@@ -27,7 +27,7 @@ export default async function page({ params }) {
             </div>
             <div className="p-2 flex flex-row items-center justify-between gap-x-1">
                 <p className="text-base font-bold text-blue-900">{res.data.response.name}</p>
-                <Inquiry data={res.data.response} />
+                <Inquiry locale={locale} t={t} data={res.data.response} />
             </div>
             <div className="p-2 bg-white rounded-lg">
                 {res.data.response.description ?
@@ -64,7 +64,7 @@ export default async function page({ params }) {
                     <div className="w-[79px]  h-[31px] absolute bg-blue-800 top-0 -right-10 rotate-45"></div>
                 </Link>
 
-                <Location data={res.data.response} />
+                <Location locale={locale} t={t} data={res.data.response} />
 
 
             </div>

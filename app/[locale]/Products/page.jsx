@@ -18,7 +18,7 @@ export default async function Page({ params, searchParams }) {
     if (Search.ipark) query.append('ipark', Search.ipark)
     const queryString = query.toString() ? `?${query.toString()}` : '';
 
-    const res = await api.get(`application/search${queryString}`)
+    const res = await api.get(`application/search${queryString}`).catch(err => console.log(err))
     let loading = true
     if (res && "status" in res) {
         loading = false

@@ -7,7 +7,7 @@ import AddImage from "../Image/AddImage";
 
 export default function Options({ t }) {
     return (
-        <div className="absolute left-0 top-8 bg-white text-nowrap text-blue-900 rounded-md shadow-lg p-2 hidden peer-checked:block border-[1px] border-blue-900 z-50">
+        <div className="absolute end-0 top-8 bg-white text-nowrap text-blue-900 rounded-md shadow-lg p-2 hidden peer-checked:block border-[1px] border-blue-900 z-50">
             <ul className="flex flex-col gap-y-1">
 
                 <li className="hover:bg-blue-100 px-2 py-1 w-full rounded-md cursor-pointer flex flex-row gap-x-1">

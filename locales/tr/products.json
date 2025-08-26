@@ -39,5 +39,12 @@
     "category_products": "Kategori Ürünleri",
     "brand_products": "Marka Ürünleri",
     "view_category": "Kategoriyi Görüntüle",
-    "view_brand": "Markayı Görüntüle"
+    "view_brand": "Markayı Görüntüle",
+    "inquiry": "İstek",
+    "inquiry_success": "İstek başarıyla gönderildi",
+    "inquiry_number": "İstek Sayısı",
+    "send_inquiry": "İstek Gönder",
+    "inquiry_number_placeholder": "İstek Sayısı",
+    "unit": "Birim",
+    "brand": "Marka"
 }

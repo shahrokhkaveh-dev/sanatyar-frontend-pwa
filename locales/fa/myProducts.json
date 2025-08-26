@@ -32,5 +32,8 @@
     "description": "توضیحات",
     "select_category": "برای انتخاب دسته بندی کلیک کنید ...",
     "feature_title": "عنوان (مثال: رنگ)",
-    "feature_value": "مقدار (مثال: قرمز)"
+    "feature_value": "مقدار (مثال: قرمز)",
+    "delete_product_confirmation": "آیا از حذف محصول اطمینان دارید؟",
+    "yes": "بله",
+    "cancel": "لغو"
 }

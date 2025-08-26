@@ -39,5 +39,12 @@
     "category_products": "محصولات دسته‌بندی",
     "brand_products": "محصولات برند",
     "view_category": "مشاهده دسته‌بندی",
-    "view_brand": "مشاهده برند"
+    "view_brand": "مشاهده برند",
+    "inquiry": "استعلام",
+    "inquiry_success": "استعلام با موفقیت انجام شد",
+    "inquiry_number": "تعداد درخواست",
+    "send_inquiry": "ارسال درخواست",
+    "inquiry_number_placeholder": "مقدار درخواستی از محصول",
+    "unit": "واحد",
+    "brand": "نام شرکت"
 }

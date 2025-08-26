@@ -11,9 +11,13 @@ import Loading from "@/components/modals/Loading";
 import { useParams, useRouter } from "next/navigation";
 import { IoBusiness } from "react-icons/io5";
 import { ShowMessage } from "@/util/ShowMessage";
+import fatranslate from "@/locales/fa/automationSystem.json"
+import enTranslate from "@/locales/en/automationSystem.json"
+import arTranslate from "@/locales/ar/automationSystem.json"
+import trTranslate from "@/locales/tr/automationSystem.json"
 
 
-export default function page({ locale, t }) {
+export default function page() {
 
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
@@ -24,6 +28,15 @@ export default function page({ locale, t }) {
     const params = useParams()
     const GroupId = params.GroupId
     const router = useRouter()
+    const locale = params.locale
+
+    const tr = {
+        fa: fatranslate,
+        en: enTranslate,
+        ar: arTranslate,
+        tr: trTranslate
+    }
+    const t = tr[locale]
 
 
 

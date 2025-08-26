@@ -31,5 +31,8 @@
     "description": "Description",
     "select_category": "Click here to select category...",
     "feature_title": "Title (Example: Color)",
-    "feature_value": "Value (Example: Red)"
+    "feature_value": "Value (Example: Red)",
+    "delete_product_confirmation": "Are you sure you want to delete the product?",
+    "yes": "Yes",
+    "cancel": "Cancel"
 }

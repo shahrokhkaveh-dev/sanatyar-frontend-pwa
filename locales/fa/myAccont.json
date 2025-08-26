@@ -168,5 +168,15 @@
     "terms_content": "محتوی قوانین و مقررات",
     "close_window": "بستن پنجره",
     "description": "توضیحات",
-    "subtitle": "عنوان فرعی"
+    "subtitle": "عنوان فرعی",
+    "add_user_max_3": "افزودن کاربر (حداکثر 3 تا)",
+    "add_images": "افزودن تصاویر",
+    "user_access_level": "سطح دسترسی کاربر",
+    "permission_1": "اطلاعات شرکت",
+    "permission_2": "نامه صنعتی",
+    "permission_3": "مدیر فروش",
+    "permission_4": "محصولات و خدمات",
+    "permission_5": "مدیر خرید",
+    "permission_6": "تجدید اشتراک",
+    "edit_user": "ویرایش کاربر"
 }

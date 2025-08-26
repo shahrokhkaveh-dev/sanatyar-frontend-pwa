@@ -10,5 +10,19 @@
     "show_inquiry_details": "نمایش جزئیات استعلام",
     "no_data": "داده‌ای موجود نیست",
     "loading": "در حال بارگذاری",
-    "back_to_home": "بازگشت به صفحه اصلی"
+    "back_to_home": "بازگشت به صفحه اصلی",
+    "response_title": "عنوان پاسخ",
+    "response_date": "تاریخ پاسخ",
+    "response_amount": "مبلغ پاسخ",
+    "accept_request": "پذیرش درخواست",
+    "reject_request": "رد درخواست",
+    "send_response": "ارسال پاسخ",
+    "response_description": "توضیحات پاسخ",
+    "response_sent": "پاسخ با موفقیت ارسال شد",
+    "prefactor": "پیش فاکتور",
+    "file_format": "فرمت فایل",
+    "cancel": "انصراف",
+    "accept_request_confirmation": "آیا از پذیرش درخواست اطمینان دارید؟",
+    "send_box": "ارسال شده",
+    "receive_box": "دریافت شده"
 }
