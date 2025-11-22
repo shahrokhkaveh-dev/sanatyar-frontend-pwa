@@ -1,7 +1,26 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-    const response = NextResponse.next(); // همیشه همین ریسپانس پایه را بساز
+    const pathname = request.nextUrl.pathname;
+
+    // --------------------------------------
+    // ⛔ استثناء ها: API، فایل‌ها، next، public
+    // --------------------------------------
+    if (
+        pathname.startsWith("/api") ||
+        pathname.startsWith("/_next") ||
+        pathname.startsWith("/fonts") ||
+        pathname.startsWith("/images") ||
+        pathname.startsWith("/icons") ||
+        pathname.startsWith("/sw") ||
+        pathname.startsWith("/manifest") ||
+        pathname.startsWith("/favicon") ||
+        pathname.includes(".")
+    ) {
+        return NextResponse.next(); // هیچ redirect یا تغییر locale انجام نشود
+    }
+
+    const response = NextResponse.next();
 
     // --------------------
     // 📌 گرفتن IP کاربر
@@ -10,7 +29,6 @@ export function middleware(request) {
     const userIp = forwardedFor?.split(",")[0]?.trim() || request.ip || "unknown";
 
     const ipCookie = request.cookies.get("user_ip")?.value;
-
     if (!ipCookie) {
         response.cookies.set("user_ip", userIp, {
             path: "/",
@@ -20,48 +38,33 @@ export function middleware(request) {
             maxAge: 60 * 60 * 24 * 30
         });
     }
-    // --------------------
 
-    const pathname = request.nextUrl.pathname;
+    // --------------------
+    // موبایل/دسکتاپ
+    // --------------------
     const userAgent = request.headers.get("user-agent") || "";
     const isMobile = /Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Tablet/i.test(userAgent);
-
-    // کامپیوتر → ریدایرکت
     if (!isMobile) {
         const redirectResponse = NextResponse.redirect("https://sanatyariran.com");
-        // اگر خواستی این redirect هم کوکی بگیرد:
         redirectResponse.cookies.set("user_ip", userIp);
         return redirectResponse;
     }
 
+    // --------------------
+    // مدیریت زبان
+    // --------------------
     const langCookie = request.cookies.get("lang")?.value || null;
 
-    // مسیرهای استثناء
-    if (
-        pathname.startsWith("/sw") ||
-        pathname.startsWith("/_next") ||
-        pathname.startsWith("/api") ||
-        pathname.startsWith("/fonts") ||
-        pathname.startsWith("/images") ||
-        pathname.startsWith("/icons") ||
-        pathname.startsWith("/manifest") ||
-        pathname.startsWith("/favicon") ||
-        pathname.includes(".")
-    ) {
-        return response; // ریسپانسی که کوکی داره
-    }
-
-    // اگر صفحه اصلی بود
+    // صفحه اصلی
     if (pathname === "/") {
         const url = request.nextUrl.clone();
         url.pathname = langCookie ? `/${langCookie}` : "/selectLang";
-
         const redirectResponse = NextResponse.redirect(url);
         redirectResponse.cookies.set("user_ip", userIp);
         return redirectResponse;
     }
 
-    // سیستم زبان‌ها
+    // صفحات با زبان
     const segments = pathname.split("/").filter(Boolean);
     const validLangs = ["fa", "en", "tr", "ar", "ch"];
     const currentLang = segments[0];
@@ -84,11 +87,10 @@ export function middleware(request) {
         }
     }
 
-    return response; // همیشه همین response با کوکی ست شده
+    return response;
 }
 
+// matcher ساده، فقط همه چیز بجز _next/static و فایل‌ها
 export const config = {
-    matcher: [
-        "/((?!api|_next|favicon.ico|manifest.json|images|icons|fonts|sw.js|workbox-.*|.*\\..*).*)",
-    ],
+    matcher: ["/((?!_next/static|.*\\..*).*)"]
 };
