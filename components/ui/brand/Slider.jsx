@@ -52,7 +52,7 @@ export default function BrandSlider({ data, height = 300 }) {
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className="relative w-full h-full">
-                            <Image
+                            <Image quality={100}
                                 src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${item.image_path}`}
                                 alt={`slide-${index}`}
                                 fill

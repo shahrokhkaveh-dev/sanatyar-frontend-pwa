@@ -46,5 +46,8 @@
     "send_inquiry": "İstek Gönder",
     "inquiry_number_placeholder": "İstek Sayısı",
     "unit": "Birim",
-    "brand": "Marka"
+    "brand": "Marka",
+    "total": "Toplam Ürün Sayısı",
+    "product": "Ürün",
+    "productDetail": "Ürün Özellikleri"
 }

@@ -6,13 +6,14 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-export default function Inbox({ res }) {
+export default function Inbox({ res, locale }) {
 
     const searchParams = useSearchParams()
 
+
     const [letters, setLetter] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [page, setpage] = useState(searchParams.get("page"))
+    const [page, setpage] = useState(searchParams.get("page") || 1)
 
     const router = useRouter()
     const params = new URLSearchParams(searchParams.toString());
@@ -20,7 +21,8 @@ export default function Inbox({ res }) {
     const loadMoreRef = useRef(null);
 
     useEffect(() => {
-        if (page == res.last_page) return
+        if (!res.last_page) return
+        if (page == res.last_page || page > res.last_page) return
         params.set("page", page ? parseInt(page) + 1 : 1)
         router.push(`?${params.toString()}`, { scroll: false });
     }, [page])
@@ -60,8 +62,8 @@ export default function Inbox({ res }) {
     return (
         <div className="p-1.5 flex flex-col gap-y-1.5">
             {letters.map((i) => (
-                <Link key={i.letter_id} href={`/AutomationSystem/Inbox/${i.letter_id}`} className="bg-white flex flex-row gap-x-2 rounded-lg py-1.5 px-1">
-                    <Image className="h-20 w-16" src={i.logo ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.logo}` : '/no_image.png'} width={100} height={100} alt="logo" />
+                <Link key={i.letter_id} href={`/${locale}/AutomationSystem/Inbox/${i.letter_id}`} className="bg-white flex flex-row gap-x-2 rounded-lg py-1.5 px-1">
+                    <Image quality={100} className="h-20 w-16" src={i.logo ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.logo}` : '/no_image.png'} width={100} height={100} alt="logo" />
                     <div className="w-full flex flex-col justify-around">
                         <p className="text-base font-bold text-blue-800">{i.title}</p>
                         <p className="text-xs text-neutral-500">فرستنده: {i.name}</p>

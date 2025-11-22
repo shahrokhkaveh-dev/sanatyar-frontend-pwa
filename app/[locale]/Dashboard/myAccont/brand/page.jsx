@@ -23,7 +23,7 @@ export default async function page({ params }) {
         <>
             <div className={`flex flex-row bg-blue-900 gap-x-2 w-full px-2 pt-5 py-3 min-h-[125px] items-center `}>
 
-                <Image className="bg-white-w-[100px] rounded-md h-full " width={100} height={100} alt="profile" src={res.data.response.brand.logo_path ? `https://app.sanatyariran.com/${res.data.response.brand.logo_path}` : '/profile.png'} />
+                <Image quality={100} className="bg-white-w-[100px] rounded-md h-full " width={100} height={100} alt="profile" src={res.data.response.brand.logo_path ? `https://app.sanatyariran.com/${res.data.response.brand.logo_path}` : '/profile.png'} />
 
                 <div className="flex flex-col gap-y-2 h-full relative w-full">
                     {res.data.response.brand.name && <p className="text-lg  text-white font-semibold ">

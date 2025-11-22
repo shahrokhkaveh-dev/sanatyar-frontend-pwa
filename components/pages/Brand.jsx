@@ -10,7 +10,8 @@ import { TbCategoryFilled } from "react-icons/tb";
 import { IoLocation } from "react-icons/io5";
 import Loading from "../modals/Loading";
 import { usePathname } from "next/navigation";
-export default function Brand({ data, Fainal, t, locale }) {
+export default function Brand({ data, Fainal, t, locale, r, total }) {
+
 
     const [brands, setBrands] = useState([]);
     const [loading, setLoading] = useState(false)
@@ -42,7 +43,6 @@ export default function Brand({ data, Fainal, t, locale }) {
             }
         })
     }, [data])
-
 
     const bottomRef = useRef(null);
     const page = searchParams.get("page") || 1;
@@ -77,10 +77,10 @@ export default function Brand({ data, Fainal, t, locale }) {
     return (
         <div className="flex flex-col gap-y-2.5 px-1.5 min-h-screen">
             {loading && <Loading />}
-            <Filter locale={locale} t={t} setBrands={setBrands} />
+            <Filter total={total} locale={locale} t={t} setBrands={setBrands} />
             {brands && typeof brands !== 'string' && brands.length > 0 && brands.map((i, index) => (
                 <Link href={`${!pathName.includes('Mokatebat') ? `/${locale}/Brand/${i.slug}` : `/${locale}/AutomationSystem/Send?company=${i.name}`}`} className="h-28 max-h-96 bg-white rounded-lg w-full grid grid-cols-4 items-center py-1.5 px-2 gap-x-1.5" key={index}>
-                    <Image alt="logo" width={200} height={200} className="max-w-full h-full max-h-20 object-contain" src={`${i.logo_path ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.logo_path}` : '/no_image.png'}`} />
+                    <Image quality={100} alt="logo" width={200} height={200} className="max-w-full h-full max-h-20 object-contain" src={`${i.logo_path ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.logo_path}` : '/no_image.png'}`} />
                     <div className={` col-span-3 w-full h-full flex flex-col justify-between`}>
                         <div>
                             <p className="text-base line-clamp-1 font-extrabold mb-1">{i.name}</p>

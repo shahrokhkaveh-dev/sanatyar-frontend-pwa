@@ -1,14 +1,9 @@
 {
-    "exhibition": "Exhibition",
-    "exhibition_description_1": "Industry Iran, Accelerator of strengthening and facilitating the supply chain of the country",
-    "exhibition_description_2": "Industry Iran, Accelerator of strengthening and facilitating the supply chain of the country",
-    "exhibition_description_3": "Industry Iran, Accelerator of strengthening and facilitating the supply chain of the country",
-    "exhibition_description_4": "Industry Iran, Accelerator of strengthening and facilitating the supply chain of the country",
-    "exhibition_description_5": "Industry Iran, Accelerator of strengthening and facilitating the supply chain of the country",
-    "exhibition_description_6": "Industry Iran, Accelerator of strengthening and facilitating the supply chain of the country",
-    "exhibition_calendar": "Calendar of domestic exhibitions",
+    "domestic_exhibition_calendar": "Domestic exhibition calendar",
     "exhibition_organizers": "Exhibition organizers",
-    "exhibition_exhibitors": "Exhibition exhibitors",
+    "booth_builders": "Exhibition booth builders",
     "exhibition_history": "Exhibition history",
-    "exhibition_news": "News"
+    "news": "News",
+    "products": "Products",
+    "companies": "Companies"
 }

@@ -1,14 +1,9 @@
 {
-    "exhibition": "المعارض",
-    "exhibition_description_1": "صناعة يار الإيرانية، مُسرِّع لتعزيز وتسهيل سلسلة التوريد الصناعية في البلاد",
-    "exhibition_description_2": "صناعة يار الإيرانية، مُسرِّع لتعزيز وتسهيل سلسلة التوريد الصناعية في البلاد",
-    "exhibition_description_3": "صناعة يار الإيرانية، مُسرِّع لتعزيز وتسهيل سلسلة التوريد الصناعية في البلاد",
-    "exhibition_description_4": "صناعة يار الإيرانية، مُسرِّع لتعزيز وتسهيل سلسلة التوريد الصناعية في البلاد",
-    "exhibition_description_5": "صناعة يار الإيرانية، مُسرِّع لتعزيز وتسهيل سلسلة التوريد الصناعية في البلاد",
-    "exhibition_description_6": "صناعة يار الإيرانية، مُسرِّع لتعزيز وتسهيل سلسلة التوريد الصناعية في البلاد",
-    "exhibition_calendar": "تقويم المعارض المحلية",
-    "exhibition_organizers": "منظمي المعارض",
-    "exhibition_exhibitors": "عارضي المعارض",
+    "domestic_exhibition_calendar": "تقويم المعارض المحلية",
+    "exhibition_organizers": "منظمو المعارض",
+    "booth_builders": "بُناة أجنحة المعارض",
     "exhibition_history": "تاريخ المعارض",
-    "exhibition_news": "أخبار المعارض"
+    "news": "الأخبار",
+    "products": "المنتجات",
+    "companies": "الشركات"
 }

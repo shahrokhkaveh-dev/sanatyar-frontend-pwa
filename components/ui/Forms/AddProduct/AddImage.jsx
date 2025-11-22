@@ -96,7 +96,7 @@ export default function AddImage({ setError, product, setProduct, setStep, pervI
                 </label>
             </div> :
                 <label htmlFor="addimage">
-                    <Image className="w-full h-52" alt="image" src={ImageURL ? ImageURL : `${process.env.NEXT_PUBLIC_BASE_IMAGE}${pervImage}`} width={300} height={300} />
+                    <Image quality={100} className="w-full h-52" alt="image" src={ImageURL ? ImageURL : `${process.env.NEXT_PUBLIC_BASE_IMAGE}${pervImage}`} width={300} height={300} />
                 </label>
             }
             <div className="flex flex-row justify-between items-">
@@ -104,7 +104,7 @@ export default function AddImage({ setError, product, setProduct, setStep, pervI
                 {!product._method && <button onClick={AddHandler} className="bg-blue-800 text-xs mt-3 px-1.5 py-1 text-white flex flex-row-reverse items-center gap-x-1 rounded-md  ">{t?.final_product_registration || "ثبت نهایی محصول"}</button>}
                 {product._method && <button onClick={sendHandler} className="bg-blue-800 text-base font-bold  mt-3 px-3 py-2 text-white flex flex-row-reverse items-center gap-x-1 rounded-md  ">{t?.save_changes || "ثبت تغییرات"}</button>}
             </div>
-            <ImageCropper
+            <Image quality={100} Cropper
                 open={cropModalOpen}
                 imageSrc={rawImage}
                 onClose={() => setCropModalOpen(false)}

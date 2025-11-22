@@ -46,7 +46,7 @@ export default function AddImage({ product, setProduct, setStep, hidden, t }) {
     return (
         <div className="bg-white rounded-full w-10 h-10 border-[1px] border-orange-400 flex justify-center items-center fixed bottom-0 right-0 m-2 text-lg z-50">
             {message && <p className="errortag text-nowrap">{message}</p>}
-            <ImageCropper
+            <Image quality={100} Cropper
                 open={cropModalOpen}
                 imageSrc={rawImage}
                 onClose={() => setCropModalOpen(false)}

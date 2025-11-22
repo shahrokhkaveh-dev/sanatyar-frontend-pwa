@@ -20,7 +20,8 @@ export default function OutBox({ res }) {
     const loadMoreRef = useRef(null);
 
     useEffect(() => {
-        if (page == res.last_page) return
+        if (!res.last_page) return
+        if (page == res.last_page || page > res.last_page) return
         params.set("page", page ? parseInt(page) + 1 : 1)
         router.push(`?${params.toString()}`, { scroll: false });
     }, [page])
@@ -61,7 +62,7 @@ export default function OutBox({ res }) {
         <div className="p-1.5 flex flex-col gap-y-1.5">
             {letters.length > 0 && letters.map((i) => (
                 <Link key={i.id} href={`/AutomationSystem/Outbox/${i.id}`} className="bg-white flex flex-row gap-x-1 rounded-lg py-1.5 px-1">
-                    <Image className="/" src={'/no_image.png'} width={100} height={100} alt="logo" />
+                    <Image quality={100} className="/" src={'/no_image.png'} width={100} height={100} alt="logo" />
                     <div className="w-full flex flex-col justify-around ">
                         <p className="text-base font-bold text-blue-800">{i.name}</p>
                         <p className="text-xs text-neutral-500">نام گیرنده: {i.reciver_name || i.group_name}</p>

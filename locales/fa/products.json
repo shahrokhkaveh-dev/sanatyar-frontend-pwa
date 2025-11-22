@@ -12,7 +12,7 @@
     "province": "استان",
     "city": "شهر",
     "industrial_city": "شهر صنعتی",
-    "search_brands": "جستجو در برندها",
+    "search_brands": "جستجو محصول ",
     "search_center": "نام مرکز",
     "view_product": "مشاهده محصول",
     "product_details": "جزئیات محصول",
@@ -34,7 +34,7 @@
     "apply_filters": "اعمال فیلترها",
     "reset_filters": "بازنشانی فیلترها",
     "product_image_alt": "تصویر محصول",
-    "no_description": "توضیحاتی برای این شرکت ثبت نشده",
+    "no_description": "توضیحاتی برای این محصول ثبت نشده",
     "product_features": "ویژگی‌های محصول",
     "category_products": "محصولات دسته‌بندی",
     "brand_products": "محصولات برند",
@@ -46,5 +46,8 @@
     "send_inquiry": "ارسال درخواست",
     "inquiry_number_placeholder": "مقدار درخواستی از محصول",
     "unit": "واحد",
-    "brand": "نام شرکت"
+    "brand": "نام شرکت",
+    "total": "تعداد کل محصولات",
+    "product": "محصول",
+    "productDetail": "مشخصات محصول"
 }

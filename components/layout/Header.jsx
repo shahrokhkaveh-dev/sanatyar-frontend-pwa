@@ -17,7 +17,7 @@ export default function Header({ t, locale }) {
             <div className="w-full h-full relative flex justify-center items-center ">
                 <FiMenu onClick={toggleSidebar} className={`text-3xl text-blue-900 items-center absolute  ${locale == 'fa' || locale == 'ar' ? 'right-0' : 'left-0'}`} />
 
-                <Image width={1000} height={1000} alt="logo" src={"/logo_txt.png"} className=" w-40 " />
+                <Image quality={100} width={1000} height={1000} alt="logo" src={"/logo_txt.png"} className=" w-40 " />
 
             </div>
 

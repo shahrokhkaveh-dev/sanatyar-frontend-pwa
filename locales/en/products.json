@@ -34,7 +34,7 @@
     "apply_filters": "Apply Filters",
     "reset_filters": "Reset Filters",
     "product_image_alt": "Product Image",
-    "no_description": "No description has been registered for this company",
+    "no_description": "No description has been registered for this product",
     "product_features": "Product Features",
     "category_products": "Category Products",
     "brand_products": "Brand Products",
@@ -46,5 +46,8 @@
     "send_inquiry": "Send Inquiry",
     "inquiry_number_placeholder": "Inquiry Number",
     "unit": "Unit",
-    "brand": "Brand"
+    "brand": "Brand",
+    "total": "Total number of products",
+    "product": "Product",
+    "productDetail": "Product Specifications"
 }

@@ -74,7 +74,7 @@ export default function CheckCode({ setStep, phone, t }) {
 
             <form onSubmit={otpHandler} className="bg-white w-full h-fit flex flex-col items-center px-3.5 py-8 rounded-lg ">
                 {(error && error["code"]) ? <p className="errortag">{error["code"][0]}</p> : error && <p className="errortag">{error}</p>}
-                <Image className="w-36" width={200} height={200} alt="image" src={"/favicon.png"} />
+                <Image quality={100} className="w-36" width={1000} height={1000} alt="image" src={"/Vector.svg"} />
                 <p className="text-xs  text-blue-800 text-nowrap" >{t.description}</p>
                 <p className="text-orange-400 mt-2.5 text-lg font-semibold ">{t.subtitle}</p>
                 <p className="text-base font-extrabold mb-1.5 mt-2 ">{t.otp_title} {phone}</p>

@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import BrandSlider from "@/components/ui/brand/Slider";
 import { loadTranslation } from "@/util/translations";
+import ShowProducts from "@/components/ui/brand/ShowProducts";
+import ShowImage from "@/components/ui/brand/ShowImage";
+import BrandProducts from "@/components/ui/brand/BrandProducts";
 
 export default async function page({ params }) {
 
@@ -19,7 +22,7 @@ export default async function page({ params }) {
         <div className="min-h-screen pb-3">
             <div className="bg-blue-900 flex flex-row gap-x-2.5 px-4 items-center justify-center py-5">
                 <div className="w-32 rounded-md overflow-hidden aspect-square ">
-                    <Image className="w-full h-full" width={1000} height={1000} alt="logo" src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${res.data.response.brand.logo_path}`} />
+                    <Image quality={100} className="w-full h-full" width={1000} height={1000} alt="logo" src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${res.data.response.brand.logo_path}`} />
                 </div>
                 <div className="w-full h-full text-white flex flex-col gap-y-2">
                     <p className="text-base font-bold text-white">{res.data.response.brand.name}</p>
@@ -32,20 +35,10 @@ export default async function page({ params }) {
                 </div>
 
             </div>
-            <div className="grid grid-cols-4 gap-x-1.5 items-center justify-center py-2 px-2 font-bold">
-                <div className="w-full h-16 rounded-md border-[1px] border-blue-900 bg-white flex flex-col justify-around py-1 items-center  font-bold">
-                    <p className="text-sm">{res.data.response.brand.product_count}</p>
-                    <p className="text-xs">{t.products}</p>
-                </div>
-                <div className="w-ful  h-16 rounded-md border-[1px] border-blue-900 bg-white flex flex-col justify-around py-1 items-center ">
-                    <p className="text-sm">{res.data.response.brand.inquiry_count}</p>
-                    <p className="text-xs">{t.inquiry}</p>
-                </div>
-                <div className="w-ful  h-16 rounded-md border-[1px] border-blue-900 bg-white flex flex-col justify-around py-1 items-center ">
-                    <p className="text-xs ">{res.data.response.brand.with_us}</p>
-                    <p className="text-xs">{t.membership}</p>
-                </div>
-                <div className="w-full  h-16 rounded-md border-[1px] border-blue-900 bg-white flex flex-col justify-around py-1 items-center ">
+            <div className="grid grid-cols-2 gap-x-1.5 items-center justify-center py-2 px-2 font-bold ">
+                <ShowProducts brand={res.data.response.brand} slug={slug} t={t} locale={locale} />
+
+                <div className="w-full  h-16 rounded-md border-[1px] border-blue-900 bg-white flex flex-col justify-around py-1 items-center justify-self-start ">
                     <p className="text-sm">{res.data.response.images.length > 0 ? res.data.response.images.length + 1 : 0}</p>
                     <p className="text-xs">{t.images}</p>
                 </div>
@@ -69,33 +62,23 @@ export default async function page({ params }) {
                     }
                 </div>
             </div>
-            <p className="text-sm mt-3 mb-1 px-2">{t.products}</p>
-            <div className="w-full overflow-auto ">
-                <div className="flex flex-row  flex-nowrap w-fit gap-2 px-1">
-                    {res.data.response.products.map((i) => (
-                        <Link
-                            href={`/Products/${i.slug}`}
-                            key={i.id}
-                            className="bg-white flex flex-col rounded-md overflow-hidden w-40 h-36"
-                        >
-                            <div className="flex-grow relative">
-                                <Image
-                                    src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.image}`}
-                                    alt="product"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <p className="text-nowrap truncate text-sm py-2 px-2 font-bold">{i.name}</p>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-            {res.data.response.images.length > 0 &&
+            {res.data.response.products.length > 0 &&
                 <>
-                    <p className="text-xs mt-3 mb-1 px-1.5">{t.images}</p>
-                    <BrandSlider data={res.data.response.images} />
+
+                    <p className="text-sm mt-3 mb-1 p-2">{t.products}</p>
+
+
+                    <BrandProducts slug={slug} locale={locale} />
                 </>
+            }
+            {res.data.response.images.length > 0 &&
+                <div className="px-2">
+                    <div className="px-1.5 py-2.5 flex flex-row justify-between">
+                        <p className="text-xs">{t.images}</p>
+                        <ShowImage t={t} locale={locale} data={res.data.response} />
+                    </div>
+                    <BrandSlider data={res.data.response.images} />
+                </div>
             }
 
         </div>
@@ -106,7 +89,7 @@ export default async function page({ params }) {
 //         <div className="flex flex-row justify-between items-center ">
 //             <div className={`flex flex-row w-full items-start gap-x-2 h-full`}>
 //                 <div className="w-20 h-full">
-//                     <Image className="bg-white w-full rounded-md  min-h-20 object-fill" width={300} height={300} alt="profile" src={res.data.response.brand.logo_path ? `https://app.sanatyariran.com/${res.data.response.brand.logo_path}` : '/profile.png'} />
+//                     <Image quality={100}  className="bg-white w-full rounded-md  min-h-20 object-fill" width={300} height={300} alt="profile" src={res.data.response.brand.logo_path ? `https://app.sanatyariran.com/${res.data.response.brand.logo_path}` : '/profile.png'} />
 //                 </div>
 //                 <div className="py-2 relative text-white ">
 //                     <p className="text-lg  text-white font-bold text-nowrap">{res.data.response.brand.name}</p>

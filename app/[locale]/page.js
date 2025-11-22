@@ -41,7 +41,7 @@ export default async function Home({ params }) {
         </span>
       </div>
       <div className="mx-2 overflow-hidden rounded-lg">
-        <Slider height={320} data={res?.data.response?.slider} />
+        <Slider locale={locale} height={300} data={res?.data.response?.slider} />
       </div>
       <div className="grid grid-cols-4 px-1.5 gap-x-1.5 mt-2.5">
         <Link href={`/${locale}/Exhibition`} className="bg-white relative w-full flex flex-col gap-y-2 items-center justify-center h-20 rounded-md overflow-hidden">
@@ -88,17 +88,17 @@ export default async function Home({ params }) {
         <p className="text-base font-extrabold  mb-2 px-3">{t.new_products}</p>
         <div className="flex flex-row flex-nowrap gap-x-4">
           {res?.data.response.new_products.map((i, index) => (
-            <Link key={index} href={`/${locale}/Products/${i.slug}`} className="rounded-lg flex flex-col relative bg-white min-w-[300px] overflow-hidden drop-shadow-lg">
+            <Link key={index} href={`/${locale}/Products/${i.slug}`} className="rounded-lg flex flex-col justify-between h-44 relative bg-white min-w-[300px] overflow-hidden drop-shadow-lg">
 
-              <div className="flex flex-row py-2.5 gap-x-2 px-2 z-20 relative w-full h-full">
+              <div className="flex flex-row h-4/5 py-2.5 gap-x-2 px-2 z-20 relative w-full ">
 
-                <Image className="w-28 h-full rounded-md shadow-[-2px_1px_7px_rgba(0,0,0,0.2)] " width={200} height={200} alt="image" src={i.img ? i.img : '/no_image.png'} />
+                <Image quality={100} className="w-28    rounded-md shadow-[-2px_1px_7px_rgba(0,0,0,0.2)] " width={1000} height={1000} alt="image" src={i.img ? i.img : '/no_image.png'} />
 
                 <p className="text-sm font-bold">{i.name}</p>
               </div>
-              <div className="text-xs  text-nowrap flex flex-row gap-x-4 w-full overflow-hidden justify-between px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75">
+              <div className="text-xs grid grid-cols-2 text-nowrap  gap-x-4 w-full overflow-hidden justify-between px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75">
                 <p className="flex flex-row gap-x-1"><BiSolidCategory className="text-base text-orange-400" />{i.category} </p>
-                <div className="py-1 flex flex-row gap-x-1 w-full">
+                <div className="py-1  gap-x-1 w-full flex flex-row items-center">
                   <ImOffice className="text-base text-orange-400" />
                   <p className=" truncate overflow-hidden">{i.office_name} </p>
                 </div>
@@ -107,9 +107,7 @@ export default async function Home({ params }) {
           ))}
         </div>
       </div>
-      <div className="mx-2  overflow-hidden rounded-lg ">
-        <Slider height={170} data={res?.data.response.banners.slice(0, res?.data.response.banners.length / 2)} />
-      </div>
+
       <div className="w-full overflow-auto flex flex-col justify-between px-1.5 py-3 my-4 ">
         <p className="text-sm font-semibold mb-1.5 px-3">{t.new_brands}</p>
         <div className="flex flex-row flex-nowrap gap-x-4">
@@ -118,11 +116,11 @@ export default async function Home({ params }) {
 
               <div className="flex flex-row w-full h-full py-2.5 gap-x-2 px-2 z-20 relative ">
 
-                <Image className="w-28 h-full rounded-md shadow-[-2px_1px_7px_rgba(0,0,0,0.2)]" width={200} height={200} alt="image" src={i.logo_path ? i.logo_path : '/no_image.png'} />
+                <Image quality={100} className="w-28 h-full rounded-md shadow-[-2px_1px_7px_rgba(0,0,0,0.2)] object-contain" width={200} height={200} alt="image" src={i.logo_path ? i.logo_path : '/no_image.png'} />
 
                 <p className="text-sm font-bold ">{i.name}</p>
               </div>
-              <div className="text-[10px] gap-x-4 text-nowrap flex flex-row w-full justify-between px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75">
+              <div className="text-[10px] gap-x-4 text-nowrap  w-full  px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75 grid grid-cols-2">
                 <p className="flex flex-row gap-x-1"><BiSolidCategory className="text-base text-orange-400" />{i.category ? i.category.name : t.unclassified_category} </p>
                 {i.city && <p className="flex flex-row gap-x-1 truncate"><ImOffice className="text-base text-orange-400" />{i.city.name} </p>}
               </div>

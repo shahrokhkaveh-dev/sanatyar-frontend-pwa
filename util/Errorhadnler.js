@@ -26,9 +26,10 @@ export const clienterr = async (err, seterr) => {
 }
 
 export const servError = (err) => {
+    console.log(err)
 
     if (err.status == 401) {
-        redirect('/Login')
+        redirect('/fa/Login')
     }
 
     return { error: "مشکلی پیش امده لطفا دوباره امتحان کنید" }

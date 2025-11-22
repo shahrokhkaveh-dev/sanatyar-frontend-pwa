@@ -21,20 +21,22 @@ export default function Statistic({ t }) {
 
     return (
         <div className="bg-blue-100 p-2 py-8 flex flex-row justify-around gap-x-2 text-base  my-4 font-semibold">
-            {statistic && <>
-                <div className="flex flex-col items-center justify-center">
-                    <span className="text-lg font-extrabold">{statistic.total_products}+</span>
-                    <p className="text-xs  font-light">{t?.total_products}</p>
+            {statistic &&
+                <div className="flex-1 grid grid-cols-3">
+                    <div className="w-full items-center flex flex-col  justify-center">
+                        <span className="text-lg font-extrabold" >{statistic.total_brands}+</span>
+                        <p className="text-xs  font-light">{t?.total_brands}</p>
+                    </div>
+                    <div className="flex flex-col  justify-center w-full items-center">
+                        <span className="text-lg font-extrabold">{statistic.total_products}+</span>
+                        <p className="text-xs  font-light">{t?.total_products}</p>
+                    </div>
+                    <div className="flex flex-col  justify-center w-full items-center">
+                        <span className="text-lg font-extrabold" >{statistic.today_reviews}+</span>
+                        <p className="text-xs   font-light">{t?.today_reviews}</p>
+                    </div>
                 </div>
-                <div className="flex flex-col items-center justify-center">
-                    <span className="text-lg font-extrabold" >{statistic.total_brands}+</span>
-                    <p className="text-xs  font-light">{t?.total_brands}</p>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                    <span className="text-lg font-extrabold" >{statistic.today_reviews}+</span>
-                    <p className="text-xs   font-light">{t?.today_reviews}</p>
-                </div>
-            </>}
+            }
         </div>
     );
 }

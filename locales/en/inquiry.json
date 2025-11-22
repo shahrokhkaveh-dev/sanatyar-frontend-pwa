@@ -24,5 +24,9 @@
     "cancel": "Cancel",
     "accept_request_confirmation": "Are you sure you want to accept the request?",
     "send_box": "Sent",
-    "receive_box": "Received"
+    "receive_box": "Received",
+    "enterAmount": "Enter the amount",
+    "1": "Pending Response",
+    "2": "Approved",
+    "3": "Rejected"
 }

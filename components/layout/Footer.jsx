@@ -16,38 +16,30 @@ export default function Footer({ t, locale }) {
     return (
 
 
-        <footer style={{ backgroundImage: "url('/Frame.png')" }} className=" bg-cover bg-center bg-no-repeat  flex flex-row  justify-between z-50  bottom-0 fixed  gap-x-4    mx-auto h-[60px] shadow-md   w-full">
-
-
+        <footer style={{ backgroundImage: "url('/Frame.png')" }} className=" bg-cover bg-center bg-no-repeat  flex flex-row  justify-between z-50  bottom-0 sticky  gap-x-4  mx-auto h-[60px] shadow-md max-w-[576px]  w-full">
             <div className="flex felx-row justify-around items-center  w-full py-2">
-                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400 " aria-checked={pathName.includes("Dashboard")} href={"/Dashboard/myAccont"}>
+                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400 " aria-checked={pathName.includes("Dashboard")} href={`/${locale}/Dashboard/myAccont`}>
                     <FaUser className="text-2xl " />
                     <span className="text-xs mt-1">{t?.profile}</span>
                 </Link>
-                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400" aria-checked={pathName.includes("Brand")} href={"/Brand"}>
+                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400" aria-checked={pathName.includes("Brand")} href={`/${locale}/Brand`}>
                     <ImOffice className="text-2xl " />
                     <span className="text-xs mt-1">{t?.companies}</span>
                 </Link>
             </div>
-
-
-            <Link href={"/"} className="absolute z-50  -top-7 left-[50%] bg-white  rounded-full text-orange-400 -translate-x-1/2  p-2 text-4xl">
+            <Link href={`/${locale}`} className="absolute z-50  -top-7 left-[50%] bg-white  rounded-full text-orange-400 -translate-x-1/2  p-2 text-4xl shadow shadow-black/50">
                 <FaHome />
             </Link>
-
-
             <div className="flex felx-row justify-around items-center  w-full py-2">
-                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400" aria-checked={pathName == '/Products'} href={"/Products"}>
+                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400" aria-checked={pathName == `/${locale}/Products`} href={`/${locale}/Products`}>
                     <BsFillBox2Fill className="text-2xl " />
                     <span className="text-xs mt-1">{t?.products}</span>
                 </Link>
-                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400" aria-checked={pathName.includes("Categories")} href={"/Categories"}>
+                <Link className="flex flex-col justify-center items-center w-fit text-blue-800 aria-checked:text-orange-400" aria-checked={pathName.includes("Categories")} href={`/${locale}/Categories`}>
                     <TbCategoryFilled className="text-2xl " />
                     <span className="text-xs mt-1">{t?.categories}</span>
                 </Link>
             </div>
-
-
         </footer>
     );
 }

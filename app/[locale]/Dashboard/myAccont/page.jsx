@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { loadTranslation } from "@/util/translations";
+import { IoLanguage } from "react-icons/io5";
 
 export default async function page({ params }) {
     const { locale } = await params;
@@ -28,9 +29,10 @@ export default async function page({ params }) {
             <ul className="bg-white text-xs ">
                 {DashboardLinks.map((i, index) => (
                     <Fragment key={index}>
-                        {res.data.response.user.is_branding === i.isbranding && <li className="flex flex-row items-center border-b-[1px] border-b-neutral-200 "><Link className="flex flex-row items-center text-base font-bold gap-x-3 p-2 py-3 w-full" href={`/${locale}${i.href}`}><i.icon className="text-2xl text-blue-800" />{i.title} </Link><IoIosArrowBack className="text-2xl ml-3" /></li>}
+                        {res.data.response.user.is_branding === i.isbranding && <li className="flex flex-row items-center border-b-[1px] border-b-neutral-200 "><Link className="flex flex-row items-center text-base font-bold gap-x-3 p-2 py-3 w-full" href={`/${locale}${i.href}`}><i.icon className=" text-2xl text-blue-800" />{i.title} </Link><IoIosArrowBack className={`${locale == "fa" || locale == "ar" ? "rotate-0" : "rotate-180"} text-2xl ml-3`} /></li>}
                     </Fragment>
                 ))}
+                <li className="flex flex-row items-center border-b-[1px] border-b-neutral-200 "><Link className="flex flex-row items-center text-base font-bold gap-x-3 p-2 py-3 w-full" href={`/selectLang`}><IoLanguage className=" text-2xl text-blue-800" /> {t.changelang} </Link><IoIosArrowBack className={`${locale == "fa" || locale == "ar" ? "rotate-0" : "rotate-180"} text-2xl ml-3`} /></li>
                 <li className="text-red-500 flex flex-row items-center"><Logout t={t} /> <IoIosArrowBack className="text-2xl ml-3" /> </li>
             </ul>
         </div>

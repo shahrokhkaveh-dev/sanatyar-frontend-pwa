@@ -24,5 +24,9 @@
     "cancel": "İptal",
     "accept_request_confirmation": "Talep Kabul Etmek İstediğinize Emin Misiniz?",
     "send_box": "Gönderilenler",
-    "receive_box": "Alınanlar"
+    "receive_box": "Alınanlar",
+    "enterAmount": "Tutarı girin",
+    "1": "Yanıt Bekleniyor",
+    "2": "Onaylandı",
+    "3": "Reddedildi"
 }

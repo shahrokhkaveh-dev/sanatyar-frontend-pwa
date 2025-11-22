@@ -20,7 +20,7 @@ export default async function page({ params }) {
     return (
         <div>
             <HeaderItems href={`/${locale}/News`} title={t.title} />
-            <Image className="h-56 w-full" alt="blog" src={res.data.blog.image} width={300} height={300} />
+            <Image quality={100} className="h-56 w-full" alt="blog" src={res.data.blog.image} width={300} height={300} />
 
             <div className="bg-white rounded-md w-[97%] mt-3 py-3 px-2 mx-auto">
                 <p className="text-blue-900 text-sm text-center text-nowrap truncate">{res.data.blog.name}</p>

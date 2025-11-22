@@ -19,7 +19,7 @@ export default function Sidebar({ t, locale }) {
         <div onClick={toggleSidebar} className={`transition-all duration-300 ease-in-out overflow-hidden z-[999] fixed top-0 ${locale == 'fa' || locale == 'ar' ? 'right-0' : 'left-0'} ${sidebar ? 'w-full backdrop-brightness-75' : 'w-0 backdrop-brightness-200'}  h-full`}>
             <div onClick={(e) => e.stopPropagation()} className="bg-white w-4/5 h-full">
                 <div className="flex flex-col gap-y-1 items-center justify-center py-2">
-                    <Image className="w h-auto w-40" width={200} height={200} src={'/favicon.png'} alt="logo" />
+                    <Image quality={100} className="w h-auto w-40" width={200} height={200} src={'/Vector.svg'} alt="logo" />
                     <p className="text-blue-900 font-bold text-xl">{t?.sanatyar_system || "سامانه صنعت یار ایران"}</p>
 
                 </div>

@@ -1,13 +1,17 @@
 
+
 import Loading from "@/components/modals/Loading";
 import Products from "@/components/pages/Products";
 import { api } from "@/config/api";
+import { servError } from "@/util/Errorhadnler";
 import { loadTranslation } from "@/util/translations";
 
 export default async function Page({ params, searchParams }) {
     const { locale } = await params;
     const t = loadTranslation(locale, 'products');
     const Search = await searchParams;
+
+    let loading = true
 
     const query = new URLSearchParams()
     if (Search.category) query.append('category', Search.category)
@@ -18,18 +22,26 @@ export default async function Page({ params, searchParams }) {
     if (Search.ipark) query.append('ipark', Search.ipark)
     const queryString = query.toString() ? `?${query.toString()}` : '';
 
-    const res = await api.get(`application/search${queryString}`).catch(err => console.log(err))
-    let loading = true
-    if (res && "status" in res) {
-        loading = false
-    } else {
-        loading = true
+    const data = await fetch(`https://app.sanatyariran.com/api/application/search${queryString}`, { next: { revalidate: 60 } }).catch((err) => servError(err)).finally(() => loading = false)
+
+    if (loading) {
+        return <div className="min-h-screen"> <Loading /> </div>
     }
+
+    if (data.error) {
+        return <p className="errortag">{data.error}</p>
+    }
+    const res = await data.json()
+
+    if (res.flag == false) {
+        return <p className="errortag">{res.message}</p>
+    }
+
 
     return (
         <div className="min-h-screen">
-            {loading && <Loading />}
-            <Products locale={locale} t={t} Fainal={res.data.response.is_final} data={res.data.response.products} />
+
+            <Products locale={locale} total={res.response.total} t={t} Fainal={res.response.is_final} data={res.response.products} />
         </div>
     );
 }

@@ -1,70 +1,94 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export function middleware(request) {
-    const pathname = request.nextUrl.pathname;
-    const response = NextResponse.next();
+    const response = NextResponse.next(); // همیشه همین ریسپانس پایه را بساز
 
-    // لیست مسیرهایی که نمی‌خوای کوکی براشون ست بشه
-    const ignoredPaths = [
-        '/favicon.ico',
-        '/icon/favicon.png',
-        '/manifest.json',
-    ];
+    // --------------------
+    // 📌 گرفتن IP کاربر
+    // --------------------
+    const forwardedFor = request.headers.get("x-forwarded-for");
+    const userIp = forwardedFor?.split(",")[0]?.trim() || request.ip || "unknown";
 
-    // بررسی کوکی lang
-    const langCookie = request.cookies.get('lang');
-    const currentLang = langCookie?.value || 'fa';
+    const ipCookie = request.cookies.get("user_ip")?.value;
 
-    // اگر مسیر اصلی (بدون locale) بود، redirect کن
-    if (pathname === '/' && pathname !== '/selectLang') {
-        const url = request.nextUrl.clone();
-        url.pathname = `/${currentLang}`;
-        return NextResponse.redirect(url);
-    }
-
-    // اگر مسیر selectLang بود، هیچ locale ای ست نکن
-    if (pathname === '/selectLang') {
-        return response;
-    }
-
-    // بررسی اینکه آیا مسیر با locale شروع می‌شود
-    const pathnameHasLocale = /^\/[a-z]{2}(-[A-Z]{2})?(\/|$)/.test(pathname);
-
-    // اگر مسیر locale نداشت و مسیر اصلی نبود، redirect کن
-    if (!pathnameHasLocale && pathname !== '/') {
-        const url = request.nextUrl.clone();
-        url.pathname = `/${currentLang}${pathname}`;
-        return NextResponse.redirect(url);
-    }
-
-    // اگه مسیر جزو مسیرهای نادیده گرفته شده بود، هیچ کوکی ست نکن
-    if (
-        !pathname.startsWith('/_next') &&
-        !pathname.startsWith('/api') &&
-        !ignoredPaths.includes(pathname) &&
-        !pathname.includes('Signin') &&
-        pathname !== '/selectLang'
-    ) {
-        // مسیر را URL-encode می‌کنیم تا از تبدیل به %2F و ... جلوگیری کنیم
-        const encodedPath = pathname; // مسیر را encode می‌کنیم
-        response.cookies.set('current_path', encodedPath, {
-            path: '/',
-            httpOnly: false,
+    if (!ipCookie) {
+        response.cookies.set("user_ip", userIp, {
+            path: "/",
+            httpOnly: true,
+            sameSite: "lax",
+            secure: true,
+            maxAge: 60 * 60 * 24 * 30
         });
+    }
+    // --------------------
 
-        // ست کردن کوکی lang اگر وجود نداشت
-        if (!langCookie) {
-            response.cookies.set('lang', 'fa', {
-                path: '/',
-                httpOnly: false,
-                maxAge: 60 * 60 * 24 * 365, // یک سال
-            });
+    const pathname = request.nextUrl.pathname;
+    const userAgent = request.headers.get("user-agent") || "";
+    const isMobile = /Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Tablet/i.test(userAgent);
+
+    // کامپیوتر → ریدایرکت
+    if (!isMobile) {
+        const redirectResponse = NextResponse.redirect("https://sanatyariran.com");
+        // اگر خواستی این redirect هم کوکی بگیرد:
+        redirectResponse.cookies.set("user_ip", userIp);
+        return redirectResponse;
+    }
+
+    const langCookie = request.cookies.get("lang")?.value || null;
+
+    // مسیرهای استثناء
+    if (
+        pathname.startsWith("/sw") ||
+        pathname.startsWith("/_next") ||
+        pathname.startsWith("/api") ||
+        pathname.startsWith("/fonts") ||
+        pathname.startsWith("/images") ||
+        pathname.startsWith("/icons") ||
+        pathname.startsWith("/manifest") ||
+        pathname.startsWith("/favicon") ||
+        pathname.includes(".")
+    ) {
+        return response; // ریسپانسی که کوکی داره
+    }
+
+    // اگر صفحه اصلی بود
+    if (pathname === "/") {
+        const url = request.nextUrl.clone();
+        url.pathname = langCookie ? `/${langCookie}` : "/selectLang";
+
+        const redirectResponse = NextResponse.redirect(url);
+        redirectResponse.cookies.set("user_ip", userIp);
+        return redirectResponse;
+    }
+
+    // سیستم زبان‌ها
+    const segments = pathname.split("/").filter(Boolean);
+    const validLangs = ["fa", "en", "tr", "ar", "ch"];
+    const currentLang = segments[0];
+    const url = request.nextUrl.clone();
+
+    if (validLangs.includes(currentLang)) {
+        if (langCookie && langCookie !== currentLang) {
+            segments[0] = langCookie;
+            url.pathname = "/" + segments.join("/");
+            const redirectResponse = NextResponse.redirect(url);
+            redirectResponse.cookies.set("user_ip", userIp);
+            return redirectResponse;
+        }
+    } else {
+        if (langCookie) {
+            url.pathname = `/${langCookie}${pathname}`;
+            const redirectResponse = NextResponse.redirect(url);
+            redirectResponse.cookies.set("user_ip", userIp);
+            return redirectResponse;
         }
     }
 
-    return response;
+    return response; // همیشه همین response با کوکی ست شده
 }
 
 export const config = {
-    matcher: ['/((?!api|_next|.*\\..*).*)'],
+    matcher: [
+        "/((?!_next/static|_next/image|favicon.ico|manifest.json|sw.js|workbox-.*\\.js|fonts|images|icons|.*\\..*).*)",
+    ],
 };

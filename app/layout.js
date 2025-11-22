@@ -34,16 +34,19 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang={lang} dir={dir}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      </head>
       <body
-        className={` antialiased bg-neutral-200 w-auto max-w-[576px] mx-auto h-screen`}
+        className={` antialiased bg-neutral-200 w-auto  mx-auto min-h-screen`}
       >
         <SidebarProvider>
           <RouteTracker />
           <Sidebar t={t} locale={lang} />
 
-          <main className=" relative min-h-screen pb-16">
+          <main className=" relative min-h-screen  max-w-[576px] mx-auto">
             <Header t={t} locale={lang} />
-            <div className="pb-5">
+            <div className="min-h-screen">
               {children}
             </div>
             <Footer t={t} locale={lang} />

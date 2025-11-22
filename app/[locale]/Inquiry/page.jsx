@@ -40,7 +40,7 @@ export default async function page({ params }) {
                 {res.data.response.data.length > 0 && res.data.response.data.map((i) => (
                     <div key={i.id} className={`border-[1px] flex flex-col border-blue-900  rounded-md ${i.status === 1 ? "bg-white" : i.status === 2 ? "bg-green-100" : i.status === 3 ? "bg-red-100" : "bg-white"} `}>
                         <div className="flex flex-row items-center gap-x-1 py-2">
-                            <Image className="w-24 bg-white py-4 rounded-md" alt={t.product_image} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.product_image}`} width={200} height={200} />
+                            <Image quality={100} className="w-24 bg-white py-4 rounded-md" alt={t.product_image} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.product_image}`} width={200} height={200} />
                             <div className="flex flex-col gap-y-1 px-1 text-xs font-bold">
                                 <p className="text-base font-bold">{i.product_name}</p>
                                 <p >{t.request_count}: {i.number}</p>
@@ -49,7 +49,7 @@ export default async function page({ params }) {
                             </div>
                         </div>
                         <div className="flex flex-row justify-between items-center px-2 py-1.5 text-xs  font-semibold">
-                            <p className=""> {t.request_status}: {statusby[i.status]}</p>
+                            <p className=""> {t.request_status}: {t[i.status]}</p>
                             <p className=" text-black flex flex-row items-center gap-x-1">
                                 {t.request_date}: {i.created_at}
                                 <FaCalendarAlt className="text-blue-900 text-sm" />

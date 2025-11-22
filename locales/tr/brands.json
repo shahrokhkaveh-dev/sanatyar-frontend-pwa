@@ -14,5 +14,9 @@
     "address": "Adres",
     "show_all": "Tümünü Göster",
     "search_brands": "Marka Adı",
-    "search_center": "Merkez Adı"
+    "search_center": "Merkez Adı",
+    "total": "Toplam Şirket Sayısı",
+    "product": "Şirket",
+    "company_gallery": "Şirket Resim Galerisi",
+    "all_products": "Tüm Ürünler"
 }

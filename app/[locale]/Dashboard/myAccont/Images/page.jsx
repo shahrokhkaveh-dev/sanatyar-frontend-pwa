@@ -42,7 +42,7 @@ export default async function page({ params }) {
                         <Fragment key={index}>
                             <input name={i} id={i} type="checkbox" className="hidden peer" />
                             <label htmlFor={i} className="bg-white rounded-lg  p-0.5 flex flex-col h-full ">
-                                <Image className="w-full h-[150px] rounded-t-lg" alt="image" width={1000} height={1000} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.image_path}`} />
+                                <Image quality={100} className="w-full h-[150px] rounded-t-lg" alt="image" width={1000} height={1000} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.image_path}`} />
                                 <div className="flex flex-row justify-end p-1">
                                     <p className="text-sm font-bold">{i.title}</p>
                                     <DelImage image={i.image_path} t={t} />
@@ -50,7 +50,7 @@ export default async function page({ params }) {
                             </label>
                             <div className="fixed top-0 right-0 w-full h-full  bg-neutral-200 hidden flex-col justify-between   peer-checked:flex z-50  p-1">
                                 <label className="p-2 text-2xl text-red-600" htmlFor={i}><IoCloseSharp /></label>
-                                <Image className="w-full h-2/3" alt="image" width={1000} height={1000} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.image_path}`} />
+                                <Image quality={100} className="w-full h-2/3" alt="image" width={1000} height={1000} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.image_path}`} />
                                 <div className="text-white min-h-14 backdrop-brightness-50 mt-3">
                                     <p >{i.title}</p>
                                 </div>

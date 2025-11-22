@@ -28,7 +28,7 @@ export default async function page({ params }) {
                     <div key={i.id} className="w-full flex flex-col justify-center items-center bg-white  rounded-lg my-2">
                         <p className="text-orange-400 py-1.5 text-center w-full flex flex-row items-center justify-center gap-x-1.5 border-b-[1px] border-b-orange-400"><IoDiamond className="text-lg" />{i.name}</p>
                         <p className="text-sm flex flex-row items-center justify-center mt-2"><FaCalendarDays className="text-blue-900" />{t.subscription} {i.period} {t.month}</p>
-                        <span className="text-xs w-fit py-1 px-2.5 border-[1px] border-neutral-300 rounded-md my-2 mb-3">{sp(i.price)} {t.toman}</span>
+                        <span className="text-xs w-fit py-1 px-2.5 border-[1px] border-neutral-300 rounded-md my-2 mb-3">{i?.price.toString().match(/.{1,3}/g).join(",")} {t.toman}</span>
                         <ByBtn id={i.id} t={t} />
                     </div>
                 ))}

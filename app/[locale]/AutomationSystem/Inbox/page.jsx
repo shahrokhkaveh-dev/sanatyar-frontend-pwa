@@ -18,7 +18,7 @@ export default async function page({ params, searchParams }) {
     return (
         <>
             <HeaderItems href={`/${locale}/AutomationSystem`} title={t.inbox} />
-            <Inbox res={res.data.response} />
+            <Inbox locale={locale} res={res.data.response} />
         </>
     );
 }

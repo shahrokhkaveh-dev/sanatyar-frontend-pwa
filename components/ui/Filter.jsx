@@ -9,7 +9,7 @@ import { fetchLocation } from "@/util/FetchLocation";
 import { CompanyType } from "@/constans/Brand";
 import { usePathname } from "next/navigation";
 
-export default function Filter({ setBrands, locale, t }) {
+export default function Filter({ setBrands, locale, t, total }) {
     const searchParams = useSearchParams();
     const pathname = usePathname()
     const router = useRouter();
@@ -110,7 +110,7 @@ export default function Filter({ setBrands, locale, t }) {
                     onKeyDown={SearchHandler}
                     value={filter.search}
                     onChange={(e) => setFilter(prev => ({ ...prev, search: e.target.value }))}
-                    className="placeholder:text-sm text-sm"
+                    className="placeholder:text-sm text-sm flex-1"
                     type="text"
                     placeholder={pathname.includes('OfficialCenter') ? t.search_center : t.search_brands}
                 />
@@ -119,13 +119,17 @@ export default function Filter({ setBrands, locale, t }) {
             <div className="overflow-x-auto w-full p-2 flex flex-row items-center gap-x-2 overflow-y-hidden">
                 <span className="text-xs text-neutral-600 text-nowrap">{t.filter_by}</span>
 
-                <div className={`${!pathname.includes('OfficialCenter') ? 'min-w-[550px] grid-cols-5' : "min-w-3/5 w-3/5 grid-cols-1"} px-2 grid  gap-x-1.5 text-nowrap parent`}>
+                {!pathname.includes("Exhibition") && <div className={`${!pathname.includes('OfficialCenter') ? 'min-w-[550px] grid-cols-5' : "min-w-3/5 w-3/5 grid-cols-1"} px-2 grid  gap-x-1.5 text-nowrap parent`}>
                     {!pathname.includes('OfficialCenter') && <Option data={filter} setData={setFilter} items={CompanyType} name={'type'} title={t.company_type} />}
                     {!pathname.includes('OfficialCenter') && <Option data={filter} setData={setFilter} items={data.category} name={'category'} title={t.category} />}
                     <Option data={filter} setData={setFilter} items={data.province} name={'province'} title={t.province} />
                     {!pathname.includes('OfficialCenter') && <Option data={filter} setData={setFilter} items={data.city} name={'city'} title={t.city} />}
                     {!pathname.includes('OfficialCenter') && <Option data={filter} setData={setFilter} items={data.ipark} name={'ipark'} title={t.industrial_city} />}
-                </div>
+                </div>}
+            </div>
+            <div className="flex flex-row justify-between px-2 pt-1 text-xs text-neutral-600">
+                <p>{t.total}</p>
+                <p>{total} {t.product}</p>
             </div>
         </div>
     );

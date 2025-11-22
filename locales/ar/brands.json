@@ -14,5 +14,14 @@
     "address": "العنوان",
     "show_all": "عرض الكل",
     "search_brands": "اسم العلامة التجارية",
-    "search_center": "اسم المركز"
+    "search_center": "اسم المركز",
+    "company_type": "نوع الشركة",
+    "category": "فئة",
+    "province": "مقاطعة",
+    "city": "مدينة",
+    "industrial_city": "مدينة صناعية",
+    "total": "إجمالي عدد الشركات",
+    "product": "شركة",
+    "company_gallery": "معرض صور الشركة",
+    "all_products": "جميع المنتجات"
 }

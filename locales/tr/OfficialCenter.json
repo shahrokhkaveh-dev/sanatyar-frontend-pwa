@@ -30,5 +30,6 @@
     "government_centers": "Devlet Merkezleri",
     "private_centers": "Özel Merkezler",
     "international_centers": "Uluslararası Merkezler",
-    "local_centers": "Yerel Merkezler"
+    "local_centers": "Yerel Merkezler",
+    "province": "İl"
 }

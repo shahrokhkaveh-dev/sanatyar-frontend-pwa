@@ -8,6 +8,7 @@ import Inquiry from "@/components/ui/products/Inquiry";
 import AddBookmark from "@/components/ui/products/AddBookmark";
 import Location from "@/components/ui/products/Location";
 import { loadTranslation } from "@/util/translations";
+import HeaderItems from "@/components/layout/HeaderItems";
 
 export default async function page({ params }) {
     const { slug, locale } = await params;
@@ -21,7 +22,8 @@ export default async function page({ params }) {
 
     return (
         <div className=" pb-4 mih-h-screen">
-            <Image className="w-full h-64" width={1000} height={1000} alt={t.product_image_alt} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${res.data.response.image}`} />
+            <HeaderItems title={t.productDetail} />
+            <Image quality={100} className="w-full h-64 object-contain bg-white" width={1000} height={1000} alt={t.product_image_alt} src={`${process.env.NEXT_PUBLIC_BASE_IMAGE}${res.data.response.image}`} />
             <div className="bg-blue-800 w-full p-2">
                 <AddBookmark wishlist={res.data.response.wishlist} id={res.data.response.id} />
             </div>
@@ -29,14 +31,14 @@ export default async function page({ params }) {
                 <p className="text-base font-bold text-blue-900">{res.data.response.name}</p>
                 <Inquiry locale={locale} t={t} data={res.data.response} />
             </div>
-            <div className="p-2 bg-white rounded-lg">
+            <div className="p-2  rounded-lg ">
                 {res.data.response.description ?
-                    <div id="desc" className="text-xs p-2  overflow-x-auto"
+                    <div id="desc" className="text-xs p-2  overflow-x-auto bg-white rounded-lg"
                         dangerouslySetInnerHTML={{
                             __html: res.data.response.description
                         }} // Use the description from the data prop
                     /> :
-                    <p className="text-base font-bold">{t.no_description}</p>
+                    <p className="text-base font-bold p-2 bg-white rounded-lg">{t.no_description}</p>
                 }
             </div>
             {res.data.response.attributes.length > 0 &&
@@ -52,21 +54,19 @@ export default async function page({ params }) {
                     </ul>
                 </div>
             }
-            <div className="flex flex-row gap-x-1.5 py-3 justify-center">
-                <Link href={`/${locale}/Products?category=${res.data.response.category_id}`} className="bg-white relative flex flex-col rounded-lg justify-center min-h-[70px] w-24 items-center overflow-hidden px-0.5 py-1">
+            <div className="flex flex-row gap-x-1.5 py-3 justify-between w-full px-2">
+                <Link href={`/${locale}/Products?category=${res.data.response.category_id}`} className="bg-white relative flex flex-col rounded-lg justify-center min-h-[70px] w-24 items-center overflow-hidden px-0.5 py-1 flex-1">
                     <TbCategoryFilled className="text-4xl text-orange-400" />
                     <p className="text-sm text-blue-900 mt-1.5">{res.data.response.category}</p>
                     <div className="w-[79px]  h-[31px] absolute bg-blue-800 top-0 -right-10 rotate-45"></div>
                 </Link>
-                <Link href={`/${locale}/Brand/${res.data.response.brand_slug}`} className="bg-white relative flex flex-col rounded-lg justify-center min-h-[70px] w-24 items-center overflow-hidden px-1">
+                <Link href={`/${locale}/Brand/${res.data.response.brand_slug}`} className="bg-white relative flex flex-col rounded-lg justify-center min-h-[70px] w-24 items-center overflow-hidden px-1 flex-1">
                     <ImOffice className="text-4xl text-orange-400 py-1" />
                     <p className="text-sm font-bold text-blue-900 mt-1.5">{res.data.response.brand}</p>
                     <div className="w-[79px]  h-[31px] absolute bg-blue-800 top-0 -right-10 rotate-45"></div>
                 </Link>
 
                 <Location locale={locale} t={t} data={res.data.response} />
-
-
             </div>
         </div>
     );

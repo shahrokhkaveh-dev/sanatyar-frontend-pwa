@@ -24,7 +24,7 @@ export default async function page({ params, searchParams }) {
     return (
         <div>
             <HeaderItems href={`/${locale}/AutomationSystem`} title={t.archive_title} />
-            <Archive res={res.data.response} />
+            <Archive t={t} locale={locale} data={res.data.response} />
         </div>
     );
 }

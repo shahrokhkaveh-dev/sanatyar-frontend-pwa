@@ -11,6 +11,8 @@ export default function MapRoute({ lat, lng, t }) {
     const [distance, setDistance] = useState(null);
     const [message, setMessage] = useState("")
 
+    console.log(lat, lng)
+
     const userIcon = new L.Icon({
         iconUrl: '/location.svg',
         iconSize: [30, 30], // سایز آیکون

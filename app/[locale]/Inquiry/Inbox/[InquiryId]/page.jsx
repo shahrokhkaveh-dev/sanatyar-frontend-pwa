@@ -4,6 +4,7 @@ import { loadTranslation } from "@/util/translations";
 
 export default async function page({ params }) {
     const { InquiryId, locale } = await params;
+    const t = loadTranslation(locale, 'inquiry');
     const res = await api.post('application/panel/products/inquiry', { id: InquiryId }).catch(err => servError(err))
     if (res.error || !res.data.flag) {
         return (

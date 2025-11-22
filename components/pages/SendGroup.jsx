@@ -88,7 +88,7 @@ export default function SendGroup({ t, locale }) {
             {loading && <Loading />
             }
             {message && <p className="errortag">{message}</p>}
-            <HeaderItems href={`/${locale}/AutomationSystem`} title={t?.send_letter || "ارسال پیام"} />
+            <HeaderItems href={`/${locale}/AutomationSystem`} title={t?.group_send || "ارسال گروهی پیام"} />
             <div className="mt-2.5 flex flex-col gap-y-2 px-2">
                 <Input setinitdata={setLetter} setError={setError} data={company} setData={setCompany} bg={"white"} error={error} name={'name'} title={t?.reciver || "گیرنده"} />
                 <div>

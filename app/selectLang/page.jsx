@@ -10,6 +10,21 @@ import { IoIosSearch } from "react-icons/io";
 export default function page() {
 
     const [search, setSearch] = useState('')
+    const [isLogin, setIsLogin] = useState(false)
+
+
+    useEffect(() => {
+        const accessToken = Cookies.get("accessToken")
+
+        if (accessToken) {
+
+            setIsLogin(true)
+        } else {
+
+            setIsLogin(false)
+        }
+
+    }, [])
 
     const [selectedLang, setSelectedLang] = useState(null)
 
@@ -48,8 +63,13 @@ export default function page() {
     }, [search])
 
     const SelectHandler = () => {
-        Cookies.set('lang', selectedLang)
-        window.location.href = `/${selectedLang}/login`
+        Cookies.set('lang', selectedLang, { expires: 100, secure: true })
+        if (isLogin) {
+            window.location.href = `/${selectedLang}`
+        } else {
+            window.location.href = `/${selectedLang}/Login`
+        }
+
     }
 
     return (
@@ -63,9 +83,9 @@ export default function page() {
                 <input className="w-full flex-1 placeholder:text-[#809BC7] text-black" type="text" placeholder="جست و جو" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
             <div className="flex flex-col gap-y-2">
-                {filteredLangs.map((i) => (
-                    <div aria-checked={selectedLang == i.value} onClick={() => setSelectedLang(i.value)} className="group py-3.5 px-3 border-[1px] border-[#D5DEEC] rounded-sm flex flex-row items-center gap-x-2 aria-checked:bg-[#FEECDB] ">
-                        <Image src={i.flag} alt={i.label} width={50} height={50} />
+                {filteredLangs.map((i, index) => (
+                    <div key={index} aria-checked={selectedLang == i.value} onClick={() => setSelectedLang(i.value)} className="group py-3.5 px-3 border-[1px] border-[#D5DEEC] rounded-sm flex flex-row items-center gap-x-2 aria-checked:bg-[#FEECDB] ">
+                        <Image quality={100} src={i.flag} alt={i.label} width={50} height={50} />
                         <div className="text-xs flex flex-col justify-baseline h-full gap-y-1.5">
                             <p className="group-aria-checked:text-[#FA8C26]">{i.name}</p>
                             <p className="group-aria-checked:text-[#A75D19] text-[#809BC7]">{i.label}</p>
@@ -73,7 +93,7 @@ export default function page() {
                     </div>
                 ))}
             </div>
-            <button onClick={SelectHandler} disabled={!selectedLang} className="w-full text-[13px] rounded-lg disabled:text-[#535353] text-white bg-[#FA8C26] text-center h-10 mt-2 disabled:bg-[#D9D9D9] ">ورود</button>
+            <button onClick={SelectHandler} disabled={!selectedLang} className="w-full text-[13px] rounded-lg disabled:text-[#535353] text-white bg-[#FA8C26] text-center h-10 mt-2 disabled:bg-[#D9D9D9] ">{!isLogin ? "ورود" : "انتخاب زبان"}</button>
         </div>
     );
 }

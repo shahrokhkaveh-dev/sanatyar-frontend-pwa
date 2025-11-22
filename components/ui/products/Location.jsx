@@ -19,7 +19,7 @@ export default function Location({ data, t }) {
         <>
             <div
                 onClick={() => setShow(true)}
-                className="bg-white relative flex flex-col rounded-lg justify-center min-h-[70px] w-24 items-center overflow-hidden px-0.5 py-1"
+                className="bg-white relative flex flex-col rounded-lg justify-center min-h-[70px] w-24 items-center overflow-hidden px-0.5 py-1 flex-1"
             >
                 <ImLocation2 className="text-4xl text-orange-400" />
                 <p className="text-sm font-bold text-blue-900 mt-1.5">
@@ -29,11 +29,11 @@ export default function Location({ data, t }) {
             </div>
 
             {/* فقط وقتی show == true نمایش بده */}
-            {show && (
+            {show && data.brand_lat && data.brand_lng && (
                 <div className="fixed top-0 right-0 w-full z-50 h-screen flex flex-col">
                     <HeaderItems title={t.map} action={closeMap} />
                     <MapRoute
-                        destination={{ lng: data.brand_lng, lat: data.brand_lat }}
+                        lng={data.brand_lng} lat={data.brand_lat}
                     />
 
                 </div>

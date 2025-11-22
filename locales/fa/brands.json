@@ -14,5 +14,14 @@
     "address": "نشانی",
     "show_all": "نمایش همه",
     "search_brands": "جستجوی شرکت",
-    "search_center": "جستجوی مرکز"
+    "search_center": "جستجوی مرکز",
+    "company_type": "نوع شرکت",
+    "category": "دسته بندی",
+    "province": "استان",
+    "city": "شهر",
+    "industrial_city": "شهرک صنعتی",
+    "total": "تعداد کل شرکت‌ها",
+    "product": "شرکت",
+    "company_gallery": "گالری تصاویر شرکت",
+    "all_products": "همه محصولات"
 }

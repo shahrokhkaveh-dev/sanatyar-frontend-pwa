@@ -51,7 +51,7 @@ export default function AddLogo({ t }) {
         <>
             {loading && <Loading t={t} />}
             {message && <p className="errortag">{message}</p>}
-            <ImageCropper
+            <Image quality={100} Cropper
                 open={cropModalOpen}
                 imageSrc={rawImage}
                 onClose={() => setCropModalOpen(false)}

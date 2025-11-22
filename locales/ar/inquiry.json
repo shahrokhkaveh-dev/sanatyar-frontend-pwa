@@ -24,5 +24,9 @@
         "cancel": "إلغاء",
         "accept_request_confirmation": "هل أنت متأكد من قبول الطلب؟",
         "send_box": "ارسال شده",
-        "receive_box": "دریافت شده"
+        "receive_box": "دریافت شده",
+        "enterAmount": "Enter the amount",
+        "1": "في انتظار الرد",
+        "2": "تمت الموافقة",
+        "3": "مرفوض"
     }

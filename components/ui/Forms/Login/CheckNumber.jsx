@@ -47,7 +47,7 @@ export default function CheckNumber({ setStep, phone, setPhone, t }) {
             {loading == true && <Loading />}
             {message && <p className="errortag">{message}</p>}
             <form onSubmit={sendOTP} className="bg-white w-full h-fit flex flex-col items-center px-3.5 py-8 rounded-lg ">
-                <Image className="w-36" width={200} height={200} alt="image" src={"/favicon.png"} />
+                <Image quality={100} className="w-36" width={1000} height={1000} alt="image" src={"/Vector.svg"} />
                 <p className="text-xs font-bold  text-blue-800 text-nowrap" >{t.description}</p>
                 <p className="text-orange-400 mt-2.5 text-xl font-extrabold">{t.subtitle}</p>
                 <Input error={error} height={"30"} setError={setError} data={phone} setData={setPhone} title={t.phone_number} placeholder={t.phone_placeholder} name={"phone"} />

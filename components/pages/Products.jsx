@@ -8,7 +8,8 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Loading from "../modals/Loading";
 
-export default function Products({ data, Fainal, locale, t }) {
+export default function Products({ data, Fainal, locale, t, total }) {
+
     const [Products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false)
 
@@ -60,7 +61,7 @@ export default function Products({ data, Fainal, locale, t }) {
     return (
         <div className="flex flex-col gap-y-2.5 min-h-screen">
             {loading && <Loading />}
-            <Filter setBrands={setProducts} locale={locale} t={t} />
+            <Filter total={total} setBrands={setProducts} locale={locale} t={t} />
             <div className="grid grid-cols-2 gap-2.5 px-3">
                 {data.length === 0 && !loading && (
                     <div className="col-span-2 text-center text-gray-500">
@@ -70,7 +71,7 @@ export default function Products({ data, Fainal, locale, t }) {
 
                 {Products.length > 0 && Products.map((i, index) => (
                     <Link href={`/${locale}/Products/${i.slug}`} key={i.slug || index} className="bg-white rounded-md p-1 ">
-                        <Image className="w-full h-36" alt={t.product_image} width={200} height={200} src={`${i.image ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.image}` : '/no_image.png'}`} />
+                        <Image quality={100} className="w-full h-36 object-contain" alt={t.product_image} width={200} height={200} src={`${i.image ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${i.image}` : '/no_image.png'}`} />
                         <p className="text-sm text-nowrap font-bold truncate text-center my-2 py-2">{i.name}</p>
                     </Link>
                 ))}

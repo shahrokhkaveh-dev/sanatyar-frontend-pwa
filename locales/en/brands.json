@@ -14,5 +14,14 @@
     "address": "Address",
     "show_all": "Show All",
     "search_brands": "Search in brands",
-    "search_center": "Center name"
+    "search_center": "Center name",
+    "company_type": "Company Type",
+    "category": "Category",
+    "province": "Province",
+    "city": "City",
+    "industrial_city": "Industrial town",
+    "total": "Total Companies",
+    "product": "Company",
+    "company_gallery": "Company Image Gallery",
+    "all_products": "All Products"
 }

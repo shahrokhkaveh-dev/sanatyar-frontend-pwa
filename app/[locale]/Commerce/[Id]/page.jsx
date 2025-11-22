@@ -16,7 +16,7 @@ export default async function page({ params }) {
         <div className="min-h-screen">
             <HeaderItems title={t.title} href={`/${locale}/Commerce`} />
 
-            <Image className="w-full h-52" width={200} height={200} alt="image" src={data.image} />
+            <Image quality={100} className="w-full h-52" width={200} height={200} alt="image" src={data.image} />
             <div className="grid grid-cols-2 gap-x-2 mt-3 px-1">
                 <Link href={`/${locale}/Brand?city=${data.cityId}`} className="text-blue-900 text-sm w-full bg-white rounded-lg  flex flex-row items-center justify-center h-16 overflow-hidden relative">
                     <IoBusiness className="text-orange-400 text-lg" />

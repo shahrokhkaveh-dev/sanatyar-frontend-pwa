@@ -5,7 +5,7 @@ export default function Accept({ data, setData, action, setShow, t, locale }) {
     return (
         <div className="fixed top-0 right-0 w-full h-full backdrop-brightness-50 flex justify-center items-center z-40">
             <div className="bg-white w-5/6 p-2 h-fit rounded-lg">
-                <input value={data.amount} onChange={(e) => setData((perv) => ({ ...perv, amount: e.target.value }))} type="text" className=" placeholder:text-xs placeholder:text-neutral-400 border-[1px] border-neutral-400 p-1 rounded-md w-full " placeholder="مبلغ را وارد کنید" />
+                <input value={data.amount} onChange={(e) => setData((perv) => ({ ...perv, amount: e.target.value }))} type="text" className=" placeholder:text-xs placeholder:text-neutral-400 border-[1px] border-neutral-400 p-1 rounded-md w-full " placeholder={t.enterAmount} />
 
                 <label className={`text-xs  border-[1px] border-neutral-400 p-1 py-2 mt-2 block rounded-md w-full mb-0 relative ${data.prefactor ? "text-black" : 'text-neutral-400'}`} htmlFor="attach">
                     {data.prefactor ? data.prefactor.name : t.prefactor}

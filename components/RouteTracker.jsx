@@ -12,31 +12,44 @@ export default function RouteTracker() {
 
     const router = useRouter()
 
+    // if (typeof navigator !== 'undefined') {
+    //     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    //     const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(userAgent);
+
+    //     if (!isMobile) {
+    //         window.location.href = 'https://sanatyariran.com';
+    //     }
+    // }
+
     const checkCookie = async () => {
         if (pathname.includes("selectLang") || pathname.includes("login")) return
         const cookie = await getCookie() || null
         const lang = Cookies.get('lang') || null
-
-        if (!cookie && !lang) {
-            router.push('/selectLang')
-        } else if (!cookie && lang) {
-            router.push(`/${lang}/Login`)
+        if (!lang) {
+            router.push(`/selectLang`)
         }
+
+        // if (!cookie && !lang) {
+        //     router.push('/selectLang')
+        // } else if (!cookie && lang) {
+        //     router.push(`/${lang}/Login`)
+        // }
     }
 
-    useEffect(() => {
-        const width = window.innerWidth;
+    // useEffect(() => {
+    //     const width = window.innerWidth;
 
-        // if (width >= 768) {
+    //     // if (width >= 768) {
 
-        //     router.push("https://sanatyariran.com");
-        // }
-        if (typeof navigator === 'undefined') {
-            setAndroid(false);
-        } else {
-            setAndroid(/Android/i.test(navigator.userAgent));
-        }
-    }, []);
+    //     //     router.push("https://sanatyariran.com");
+    //     // }
+    //     if (typeof navigator === 'undefined') {
+    //         setAndroid(false);
+    //     } else {
+    //         setAndroid(/Android/i.test(navigator.userAgent));
+    //     }
+    // }, []);
 
     useEffect(() => {
         checkCookie()
@@ -48,22 +61,22 @@ export default function RouteTracker() {
 
     }, [pathname]);
 
-    useEffect(() => {
-        if (android) {
-            tryOpenApp();
-        }
-    }, [android]);
+    // useEffect(() => {
+    //     if (android) {
+    //         tryOpenApp();
+    //     }
+    // }, [android]);
 
     const tryOpenApp = () => {
-        const timeout = 1500;
-        const t0 = Date.now();
+        // const timeout = 1500;
+        // const t0 = Date.now();
 
-        window.location.href = 'sanatyariran.com://payment';
+        // window.location.href = 'sanatyariran.com://payment';
 
-        setTimeout(() => {
+        // setTimeout(() => {
 
 
-        }, timeout);
+        // }, timeout);
     };
 
     return <><ToastContainer /></>

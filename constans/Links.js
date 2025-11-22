@@ -3,7 +3,7 @@ import { BsBookmarkFill } from "react-icons/bs";
 import { FaBookmark, FaBuilding, FaUserEdit } from "react-icons/fa";
 import { FaSignature } from "react-icons/fa6";
 import { ImOffice } from "react-icons/im";
-import { IoBookmark } from "react-icons/io5";
+import { IoBookmark, IoLanguage } from "react-icons/io5";
 import { MdAddPhotoAlternate, MdBusinessCenter, MdOutlinePayment } from "react-icons/md";
 import { RiAddBoxFill } from "react-icons/ri";
 
@@ -14,7 +14,8 @@ export const getDashboardLinks = (t) => [
     { title: t.register_company, icon: ImOffice, isbranding: 0, href: '/Dashboard/complete' },
     { title: t.company_members, icon: FaUserEdit, isbranding: 1, href: '/Dashboard/myAccont/users' },
     { title: t.company_images, icon: MdAddPhotoAlternate, isbranding: 1, href: '/Dashboard/myAccont/Images' },
-    { title: t.signature, icon: FaSignature, isbranding: 1, href: '/Dashboard/myAccont/Signature' }
+    { title: t.signature, icon: FaSignature, isbranding: 1, href: '/Dashboard/myAccont/Signature' },
+
 ];
 
 export const getProductLinks = (t) => [

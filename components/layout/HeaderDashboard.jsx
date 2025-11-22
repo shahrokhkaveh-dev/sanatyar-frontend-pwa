@@ -101,7 +101,7 @@ export default function HeaderDashboard({ user, t, locale }) {
                         onChange={handleFileChange}
                     />
                 </div>
-                <ImageCropper
+                <Image quality={100} Cropper
                     open={cropModalOpen}
                     imageSrc={rawImage}
                     onClose={() => setCropModalOpen(false)}

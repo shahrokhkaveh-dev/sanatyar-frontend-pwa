@@ -144,7 +144,7 @@ export default function Signature({ locale, t }) {
                     style: { touchAction: "none", backgroundColor: "white", width: "100%", height: "200px" }
                 }}
             /> :
-                <Image className="w-full h-[200px] bg-white" width={200} height={200} src={`data:image/png;base64,${signature}`} alt="signature" />
+                <Image quality={100} className="w-full h-[200px] bg-white" width={200} height={200} src={`data:image/png;base64,${signature}`} alt="signature" />
             }
             <div className="grid grid-cols-2 gap-x-2.5 px-2 mt-3.5">
 
@@ -156,7 +156,7 @@ export default function Signature({ locale, t }) {
                 <input onChange={handleFileChange} className="hidden" type="file" id="signature" name="signature" />
                 {!edited ? <button onClick={() => setEdited(true)} className="bg-blue-800 text-white rounded-md text-sm py-1 col-span-full">{t?.edit_signature || "ویرایش"}</button> : <button onClick={save} className="bg-blue-800 text-white rounded-md text-sm py-1">{t?.confirm_and_send || "تایید و ارسال"}</button>}
                 {message && <p className="errortag text-nowrap">{message}</p>}
-                <ImageCropper
+                <Image quality={100} Cropper
                     open={cropModalOpen}
                     imageSrc={rawImage}
                     onClose={() => setCropModalOpen(false)}

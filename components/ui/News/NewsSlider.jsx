@@ -38,7 +38,7 @@ export default function NewsSlider({ data, height }) {
                         className='px-1'
                     >
                         <div style={{ height: `250px` }} className="w-full overflow-hidden rounded-lg relative ">
-                            <Image
+                            <Image quality={100}
                                 fill
                                 className="object-cover rounded-b-lg"
                                 src={`${item.image_path ? item.image_path.includes("http") ? item.image_path : `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item.image_path}` : item.image.includes("http") ? item.image : `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item.image}`}`}
