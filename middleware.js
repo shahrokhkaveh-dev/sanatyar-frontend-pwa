@@ -1,36 +1,33 @@
 import { NextResponse } from "next/server";
 
-// مسیرهایی که میدل‌ور نباید روی آن‌ها اجرا شود
-// این کار خوانایی کد را بالا می‌برد
 const SKIP_PATHS = [
-    '/api/:path*',
-    '/_next/static/:path*',
-    '/_next/image/:path*',
+    '/api',
+    '/_next',
     '/favicon.ico',
-    '/images/:path*',
-    '/icons/:path*',
-    '/fonts/:path*',
-    '/sw.js',
-    '/manifest.json',
+    '/images',
+    '/icons',
+    '/fonts',
+    '/sw',
+    '/manifest',
+    '/locale' // ← اضافه شد تا کل پوشه پابلیک locale رو رد کنه
 ];
 
 export function middleware(request) {
     const { pathname, hostname } = request.nextUrl;
 
     // ==========================
-    // 🛡️ Guard Clause: استثناها
+    // 🛡️ Guard Clause: مسیرهای استثنا
     // ==========================
-    // اگر مسیر در لیست استثناها بود، بلافاصله کار را تمام کن و برو سراغ درخواست بعدی
-    // این قوی‌ترین راه برای جلوگیری از اجرای بقیه کد است
     if (
-        pathname.startsWith('/api') ||
-        pathname.startsWith('/_next') ||
-        pathname.startsWith('/images') ||
-        pathname.startsWith('/icons') ||
-        pathname.startsWith('/fonts') ||
-        pathname.startsWith('/sw') ||
-        pathname.startsWith('/manifest') ||
-        pathname === '/favicon.ico'
+        pathname.startsWith("/sw") ||
+        pathname.startsWith("/_next") ||
+        pathname.startsWith("/api") ||
+        pathname.startsWith("/fonts") ||
+        pathname.startsWith("/images") ||
+        pathname.startsWith("/icons") ||
+        pathname.startsWith("/manifest") ||
+        pathname.startsWith("/favicon") ||
+        pathname.includes(".") // یعنی فایل مثل .jpg .png .js .css و غیره
     ) {
         return NextResponse.next();
     }
@@ -41,14 +38,13 @@ export function middleware(request) {
     const forwardedFor = request.headers.get("x-forwarded-for");
     const userIp = forwardedFor?.split(",")[0]?.trim() || request.ip || "unknown";
 
-    // یک پاسخ اصلی برای تنظیم کوکی‌ها ایجاد می‌کنیم
     const response = NextResponse.next();
     if (!request.cookies.get("user_ip")?.value) {
         response.cookies.set("user_ip", userIp, {
             path: "/",
             httpOnly: true,
             sameSite: "lax",
-            secure: true, // در پروداکشن حتما true باشد
+            secure: true, // در پروداکشن true باشه
             maxAge: 60 * 60 * 24 * 30
         });
     }
@@ -59,19 +55,22 @@ export function middleware(request) {
     const userAgent = request.headers.get("user-agent") || "";
     const isMobile = /Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Tablet/i.test(userAgent);
 
-    // اگر کاربر موبایل نبود و در دامنه اصلی هم نبود، ریدایرکت کن
     if (!isMobile && hostname !== 'sanatyariran.com') {
         const redirectResponse = NextResponse.redirect("https://sanatyariran.com");
         if (!request.cookies.get("user_ip")?.value) {
             redirectResponse.cookies.set("user_ip", userIp, {
-                path: "/", httpOnly: true, sameSite: "lax", secure: true, maxAge: 60 * 60 * 24 * 30
+                path: "/",
+                httpOnly: true,
+                sameSite: "lax",
+                secure: true,
+                maxAge: 60 * 60 * 24 * 30
             });
         }
         return redirectResponse;
     }
 
     // ==========================
-    // 🌍 مدیریت زبان (فقط برای کاربران موبایل)
+    // 🌍 مدیریت زبان
     // ==========================
     const langCookie = request.cookies.get("lang")?.value;
     const validLangs = ["fa", "en", "tr", "ar", "ch"];
@@ -82,50 +81,32 @@ export function middleware(request) {
     if (pathname === "/") {
         const url = request.nextUrl.clone();
         url.pathname = langCookie ? `/${langCookie}` : "/selectLang";
-        const redirectResponse = NextResponse.redirect(url);
-        if (!request.cookies.get("user_ip")?.value) {
-            redirectResponse.cookies.set("user_ip", userIp, { path: "/", httpOnly: true, sameSite: "lax", secure: true, maxAge: 60 * 60 * 24 * 30 });
-        }
-        return redirectResponse;
+        return NextResponse.redirect(url);
     }
 
-    // اگر مسیر با زبان معتبر شروع نمی‌شود و کاربر زبان در کوکی دارد
+    // مسیر بدون زبان اما کوکی دارد
     if (!validLangs.includes(currentLang) && langCookie) {
         const url = request.nextUrl.clone();
         url.pathname = `/${langCookie}${pathname}`;
-        const redirectResponse = NextResponse.redirect(url);
-        if (!request.cookies.get("user_ip")?.value) {
-            redirectResponse.cookies.set("user_ip", userIp, { path: "/", httpOnly: true, sameSite: "lax", secure: true, maxAge: 60 * 60 * 24 * 30 });
-        }
-        return redirectResponse;
+        return NextResponse.redirect(url);
     }
 
-    // اگر مسیر با زبان معتبر شروع شده ولی با زبان کوکی متفاوت است
+    // مسیر با زبان متفاوت با کوکی
     if (validLangs.includes(currentLang) && langCookie && langCookie !== currentLang) {
         const url = request.nextUrl.clone();
         segments[0] = langCookie;
         url.pathname = "/" + segments.join("/");
-        const redirectResponse = NextResponse.redirect(url);
-        if (!request.cookies.get("user_ip")?.value) {
-            redirectResponse.cookies.set("user_ip", userIp, { path: "/", httpOnly: true, sameSite: "lax", secure: true, maxAge: 60 * 60 * 24 * 30 });
-        }
-        return redirectResponse;
+        return NextResponse.redirect(url);
     }
 
-    // اگر هیچ ریدایرکتی لازم نبود، پاسخ اصلی را برگردان
     return response;
 }
 
-// Matcher را هم برای عملکرد بهتر، دقیقاً مطابق با مسیرهای استثنا تنظیم می‌کنیم
+// ==========================
+// ⚡️ Matcher
+// ==========================
 export const config = {
     matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - api (API routes)
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico, images, icons, fonts, etc.
-         */
-        '/((?!api|_next/static|_next/image|favicon.ico|images|icons|fonts|sw|manifest).*)',
+        "/((?!_next/static|_next/image|favicon.ico|manifest.json|sw.js|workbox-.*\\.js|fonts|images|icons|.*\\..*).*)",
     ],
 };
