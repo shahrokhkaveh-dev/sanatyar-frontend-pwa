@@ -88,7 +88,7 @@ export default async function Home({ params }) {
         <p className="text-base font-extrabold  mb-2 px-3">{t.new_products}</p>
         <div className="flex flex-row flex-nowrap gap-x-4">
           {res?.data.response.new_products.map((i, index) => (
-            <Link key={index} href={`/${locale}/Products/${i.slug}`} className="rounded-lg flex flex-col justify-between h-44 relative bg-white min-w-[300px] overflow-hidden drop-shadow-lg">
+            <Link key={index} href={`/${locale}/Products/${i.slug}`} className="rounded-lg flex flex-col justify-between h-44 relative bg-white min-w-[325px] overflow-hidden drop-shadow-lg">
 
               <div className="flex flex-row h-4/5 py-2.5 gap-x-2 px-2 z-20 relative w-full ">
 
@@ -96,7 +96,7 @@ export default async function Home({ params }) {
 
                 <p className="text-sm font-bold">{i.name}</p>
               </div>
-              <div className="text-xs grid grid-cols-2 text-nowrap  gap-x-4 w-full overflow-hidden justify-between px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75">
+              <div className="text-xs grid grid-cols-2 items-center text-nowrap  gap-x-4 w-full overflow-hidden justify-between px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75">
                 <p className="flex flex-row gap-x-1"><BiSolidCategory className="text-base text-orange-400" />{i.category} </p>
                 <div className="py-1  gap-x-1 w-full flex flex-row items-center">
                   <ImOffice className="text-base text-orange-400" />
@@ -120,9 +120,9 @@ export default async function Home({ params }) {
 
                 <p className="text-sm font-bold ">{i.name}</p>
               </div>
-              <div className="text-[10px] gap-x-4 text-nowrap  w-full  px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75 grid grid-cols-2">
-                <p className="flex flex-row gap-x-1"><BiSolidCategory className="text-base text-orange-400" />{i.category ? i.category.name : t.unclassified_category} </p>
-                {i.city && <p className="flex flex-row gap-x-1 truncate"><ImOffice className="text-base text-orange-400" />{i.city.name} </p>}
+              <div className="text-[10px] text-nowrap  w-full  px-2.5 py-1 z-20 relative text-blue-800 backdrop-contrast-75 flex flex-row gap-x-4">
+                <p className="flex flex-row gap-x-1 items-center"><BiSolidCategory className="text-base text-orange-400" />{i.category ? i.category.name : t.unclassified_category} </p>
+                {i.city && <p className="flex flex-row gap-x-1 truncate items-center"><ImOffice className="text-base text-orange-400" />{i.city.name} </p>}
               </div>
             </Link>
 
