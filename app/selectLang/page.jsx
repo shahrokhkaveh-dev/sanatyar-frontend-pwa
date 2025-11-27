@@ -38,23 +38,36 @@ export default function page() {
             flag: '/Iran.png'
         },
         {
-            name: 'انگلیسی',
+            name: 'English',
             value: 'en',
             label: 'english',
             flag: '/England.png'
         },
         {
-            name: 'عربی',
+            name: '中文 ',
+            value: 'ch',
+            label: 'Chinese',
+            flag: '/china.svg'
+        },
+        {
+            name: 'Русский',
+            value: 'ru',
+            label: 'Russian',
+            flag: '/russia.svg'
+        },
+        {
+            name: 'العربية',
             value: 'ar',
             label: 'arabic',
             flag: '/Arabia.png'
         },
         {
-            name: 'ترکی',
+            name: 'Türkçe',
             value: 'tr',
             label: 'turkish',
             flag: '/turkish.png'
         }
+
     ]
 
     const [filteredLangs, setFilteredLangs] = useState(langs)

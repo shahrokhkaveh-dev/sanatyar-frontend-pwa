@@ -16,7 +16,7 @@ export default function Loading() {
         "fa": "لطفاً منتظر بمانید...",
         "en": "Please wait...",
         "tr": "Lütfen bekleyiniz...",
-        "zh": "请稍候...",
+        "ch": "请稍候...",
         "ar": "يرجى الانتظار..."
     }
 

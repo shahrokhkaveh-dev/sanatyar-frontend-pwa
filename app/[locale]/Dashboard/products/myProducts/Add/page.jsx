@@ -3,6 +3,8 @@
 import dynamic from 'next/dynamic';
 const AddProduct = dynamic(() => import("@/components/pages/AddProduct"), { ssr: false });
 import faTranslations from '@/locales/fa/myProducts.json';
+import ruTranslations from '@/locales/ru/myProducts.json';
+import chTranslations from '@/locales/ch/myProducts.json';
 import enTranslations from '@/locales/en/myProducts.json';
 import arTranslations from '@/locales/ar/myProducts.json';
 import trTranslations from '@/locales/tr/myProducts.json';
@@ -17,6 +19,8 @@ export default function page() {
     const translations = {
         fa: faTranslations,
         en: enTranslations,
+        ch: chTranslations,
+        ru: ruTranslations,
         ar: arTranslations,
         tr: trTranslations
     };

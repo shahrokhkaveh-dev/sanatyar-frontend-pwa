@@ -13,6 +13,8 @@ import { IoBusiness } from "react-icons/io5";
 import { ShowMessage } from "@/util/ShowMessage";
 import fatranslate from "@/locales/fa/automationSystem.json"
 import enTranslate from "@/locales/en/automationSystem.json"
+import ruTranslate from "@/locales/ru/automationSystem.json"
+import chTranslate from "@/locales/ch/automationSystem.json"
 import arTranslate from "@/locales/ar/automationSystem.json"
 import trTranslate from "@/locales/tr/automationSystem.json"
 
@@ -33,6 +35,8 @@ export default function page() {
     const tr = {
         fa: fatranslate,
         en: enTranslate,
+        ru: ruTranslate,
+        ch: chTranslate,
         ar: arTranslate,
         tr: trTranslate
     }

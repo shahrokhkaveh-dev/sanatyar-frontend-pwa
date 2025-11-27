@@ -3,6 +3,8 @@
 import dynamic from 'next/dynamic';
 import faTranslations from '@/locales/fa/automationSystem.json';
 import enTranslations from '@/locales/en/automationSystem.json';
+import ruTranslations from '@/locales/ru/automationSystem.json';
+import chTranslations from '@/locales/ch/automationSystem.json';
 import arTranslations from '@/locales/ar/automationSystem.json';
 import trTranslations from '@/locales/tr/automationSystem.json';
 import { useParams } from 'next/navigation';
@@ -17,6 +19,8 @@ export default function page() {
     const translations = {
         fa: faTranslations,
         en: enTranslations,
+        ch: chTranslations,
+        ru: ruTranslations,
         ar: arTranslations,
         tr: trTranslations
     };

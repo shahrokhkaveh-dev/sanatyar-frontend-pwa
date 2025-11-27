@@ -72,8 +72,13 @@ export function middleware(request) {
     // ==========================
     // 🌍 مدیریت زبان
     // ==========================
+
+    if (pathname === "/selectLang") {
+        return response;
+    }
+
     const langCookie = request.cookies.get("lang")?.value;
-    const validLangs = ["fa", "en", "tr", "ar", "ch"];
+    const validLangs = ["fa", "en", "tr", "ar", "ch", "ru"];
     const segments = pathname.split("/").filter(Boolean);
     const currentLang = segments[0];
 
