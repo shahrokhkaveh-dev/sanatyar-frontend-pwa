@@ -18,6 +18,8 @@ export default async function page({ params }) {
 
     const res = await api.get('application/panel/brand').catch(err => servError(err))
 
+    const profile = await api.get('application/panel/profile/reload').catch((err) => servError(err))
+
     if (res.error || !res.data.flag) {
         return (
             <div>
@@ -26,6 +28,7 @@ export default async function page({ params }) {
             </div>
         )
     }
+
 
     return (
         <div className="px-1 min-h-screen">
@@ -64,8 +67,8 @@ export default async function page({ params }) {
                     </div>
                 </div>
             ))}
-            <label htmlFor="adduser" className="fixed right-0 bottom-4 mb-12 text-orange-400 border-[1px] border-orange-400 rounded-full w-10 h-10 text-2xl bg-white m-2 flex justify-center items-center">+</label>
-            <AddUser t={t} />
+            {(profile.data.response.user.is_manager || profile.data.response.is_admin) && <label htmlFor="adduser" className="fixed right-0 bottom-4 mb-12 text-orange-400 border-[1px] border-orange-400 rounded-full w-10 h-10 text-2xl bg-white m-2 flex justify-center items-center">+</label>}
+            {(profile.data.response.user.is_manager || profile.data.response.is_admin) && <AddUser t={t} />}
         </div>
     );
 }

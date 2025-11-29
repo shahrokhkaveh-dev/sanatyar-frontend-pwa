@@ -10,6 +10,7 @@ export default async function lauout({ children, params }) {
     const t = loadTranslation(locale, 'myAccont');
     const res = await api.get('application/panel/profile/reload').catch((err) => servError(err))
 
+
     if (res.status == 200 && !res.data.flag) {
         return <p className="errortag">{res.data.message}</p>
     }
