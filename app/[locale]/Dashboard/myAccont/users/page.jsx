@@ -28,6 +28,14 @@ export default async function page({ params }) {
             </div>
         )
     }
+    if (profile.error || !profile.data.flag) {
+        return (
+            <div>
+                <HeaderItems href={`/${locale}/Dashboard/myAccont`} title={t.company_members_title} />
+                <p className="errortag">{profile.error ? profile.error : profile.data.message}</p>
+            </div>
+        )
+    }
 
 
     return (
