@@ -7,6 +7,7 @@ import Sidebar from "@/components/layout/Sidebar";
 import RouteTracker from "@/components/RouteTracker";
 import { cookies } from "next/headers";
 import { loadTranslation } from "@/util/translations";
+import InstallPWA from "@/components/modals/InstallPwa";
 
 export const viewport = {
   themeColor: "#fff",
@@ -43,7 +44,7 @@ export default async function RootLayout({ children }) {
         <SidebarProvider>
           <RouteTracker />
           <Sidebar t={t} locale={lang} />
-
+          <InstallPWA />
           <main className=" relative min-h-screen  max-w-[576px] mx-auto">
             <Header t={t} locale={lang} />
             <div className="min-h-screen">

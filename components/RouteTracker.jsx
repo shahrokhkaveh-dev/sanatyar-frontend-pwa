@@ -79,5 +79,8 @@ export default function RouteTracker() {
         // }, timeout);
     };
 
-    return <><ToastContainer /></>
+    return <>
+        <ToastContainer />
+
+    </>
 }
