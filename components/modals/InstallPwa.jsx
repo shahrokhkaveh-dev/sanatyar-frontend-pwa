@@ -64,7 +64,7 @@ export default function InstallPWA() {
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[9999]">
             <div className="bg-white w-[90%] rounded-xl p-5 text-center shadow-xl">
 
-                {!isIOS ? (
+                {isIOS ? (
                     <>
                         <p className="mb-4">
                             برای نصب اپ:
