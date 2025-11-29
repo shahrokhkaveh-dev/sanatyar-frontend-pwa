@@ -61,12 +61,12 @@ export default function InstallPWA() {
     if (pwashow) return null
 
     return (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[9999]">
-            <div className="bg-white w-[90%] rounded-xl p-5 text-center shadow-xl">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[9999] ">
+            <div className="bg-white w-[90%] rounded-xl p-5 text-center shadow-xl max-w-[500px]">
 
                 {isIOS ? (
                     <>
-                        <p className="mb-4">
+                        <p className="mb-4 text-sm">
                             برای نصب اپ:
                             <br />
                             دکمه <b>Share</b> را انتخاب کرده و سپس
@@ -74,27 +74,27 @@ export default function InstallPWA() {
                         </p>
                         <button
                             onClick={closeHandler}
-                            className="w-full bg-gray-700 text-white py-2 rounded-lg"
+                            className="w-full bg-gray-700 text-white py-2 rounded-lg text-sm"
                         >
                             متوجه شدم
                         </button>
                     </>
                 ) : (
                     <div className="grid grid-cols-2 gap-x-2">
-                        <p className="mb-4 col-span-full">
+                        <p className="mb-4 col-span-full text-sm">
                             برای دسترسی سریع‌تر و تجربه بهتر، پیشنهاد می‌کنیم اپلیکیشن را روی دستگاه خود نصب کنید.
                         </p>
 
                         <button
                             onClick={installHandler}
-                            className="w-full border border-blue-800 text-blue-800 rounded-lg py-1"
+                            className="w-full border border-blue-800 text-blue-800 rounded-lg py-1 text-xs"
                         >
                             نصب اپلیکیشن
                         </button>
 
                         <button
                             onClick={closeHandler}
-                            className="w-full border border-red-500 text-red-500 rounded-lg py-1"
+                            className="w-full border text-xs border-red-500 text-red-500 rounded-lg py-1"
                         >
                             بعداً
                         </button>
